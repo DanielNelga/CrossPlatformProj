@@ -1,6 +1,8 @@
 ﻿using System.Text.Json;
 namespace CrossPlatformProject
 {
+
+    //TEST ABOBOCHKI VIDBUVAETSA
     public partial class MainPage : ContentPage
     {
         //using the json API can getting movies+movie objects from here
