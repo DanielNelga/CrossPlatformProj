@@ -4,7 +4,11 @@
              x:Class="CrossPlatformProject.MainPage">
 
     <ScrollView>
+        <StackLayout Padding="20">
+            <SearchBar x:Name="SearchBox"
+                       Placeholder="Search by name or by genre" />
 
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
