@@ -16,6 +16,7 @@ namespace CrossPlatformProject
         public MainPage()
         {
             InitializeComponent();
+            LoadMovies();
         }
 
         private async void LoadMovies()
@@ -47,6 +48,7 @@ namespace CrossPlatformProject
             }
 
         }
+
 
        
     }
