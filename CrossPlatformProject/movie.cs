@@ -1,8 +1,8 @@
-﻿
+﻿using System.Text.Json.Serialization;
 
 namespace CrossPlatformProject
 {
-    public partial class movie
+    public partial class Movie
     {
         //Means to search and capture data from the json file
         public string Title { get; set; }
