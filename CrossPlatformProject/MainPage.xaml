@@ -7,9 +7,18 @@
     <ScrollView>
         <StackLayout Padding="20">
             <SearchBar x:Name="SearchBox"
-                       Placeholder="Search by name or by genre" />
+                       Placeholder="Search by name or by genre"
+                       />
 
             <ListView x:Name="MoviesList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Emoji}"
+                                  Detail="{Binding Title}">
+                            
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
                 
             </ListView>
 
