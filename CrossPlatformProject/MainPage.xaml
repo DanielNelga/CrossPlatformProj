@@ -8,7 +8,7 @@
         <StackLayout Padding="20">
             <SearchBar x:Name="SearchBox"
                        Placeholder="Search by name or by genre"
-                       />
+                       TextChanged="Search"/>
 
             <ListView x:Name="MoviesList">
                 <ListView.ItemTemplate>

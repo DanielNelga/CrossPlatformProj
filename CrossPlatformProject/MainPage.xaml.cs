@@ -10,7 +10,7 @@ namespace CrossPlatformProject
         //storing in local cache here
         string localCache = Path.Combine(FileSystem.AppDataDirectory, "movies.json");
 
-        //creating the list and then w
+        //creating the list and using the external Movie class
         List<Movie> allMovies = new List<Movie>();
 
         public MainPage()
@@ -27,8 +27,10 @@ namespace CrossPlatformProject
                 //going to create a case, if the program doesn't find the file instead of crashing
                 if (!File.Exists(localCache))
                 {
+                    //downloads file if it doesn't exist or can't find it it will download it from github and use the string jsonFile to store
                     HttpClient client = new HttpClient();
 
+                    
                     jsonFile = await client.GetStringAsync(jsonFileGithub);
                     File.WriteAllText(localCache, jsonFile);
 
@@ -48,7 +50,38 @@ namespace CrossPlatformProject
             }
 
         }
+        private void Search(object sender, TextChangedEventArgs e)
+        {
+            //making search not case sensitive by using .ToLower();
+            string searchText = e.NewTextValue.ToLower();
+            //when the user loads the program or has an empty search bar, it will display all the movies
+            if (String.IsNullOrEmpty(searchText))
+            {
+                MoviesList.ItemsSource = allMovies;
+                return;
+            }
+            List<Movie> chosenMovie = new List<Movie>();
+            foreach (Movie movie in allMovies)
+            {
+                bool titleSearch = false;
+                bool genreSearch = false;
+                //again making the search not case sensitive
+                if (!String.IsNullOrEmpty(movie.Title))
+                {
+                    if (movie.Title.ToLower().Contains(searchText))
+                    {
+                        titleSearch = true;
+                    }
+                }
+            //filters by search when the user types in a genre or a title(doesn't have to be the full title)
+                if (titleSearch)
+                {
+                    chosenMovie.Add(movie);
+                }
 
-    }
+            }
+            MoviesList.ItemsSource = chosenMovie;
+        }
+        }
 }
 
