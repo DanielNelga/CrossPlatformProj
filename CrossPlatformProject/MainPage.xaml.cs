@@ -78,6 +78,21 @@ namespace CrossPlatformProject
                 {
                     chosenMovie.Add(movie);
                 }
+                //can't use !String.ISNullOrEmpty for a list as it can only work for strings
+                if(movie.Genre != null)
+                {
+                    foreach(var genre in movie.Genre)
+                    {
+                        if(genre.ToLower().Contains(searchText))
+                        {
+                            genreSearch = true;
+                        }
+                    }
+                }
+                if(genreSearch)
+                {
+                    chosenMovie.Add(movie);
+                }
 
             }
             MoviesList.ItemsSource = chosenMovie;
