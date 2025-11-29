@@ -86,6 +86,7 @@ namespace CrossPlatformProject
                         }
                     }
                 }
+                //filters movies
                 if (titleSearch || genreSearch)
                 {
                     chosenMovie.Add(movie);
