@@ -30,7 +30,7 @@ namespace CrossPlatformProject
                     //downloads file if it doesn't exist or can't find it it will download it from github and use the string jsonFile to store
                     HttpClient client = new HttpClient();
 
-                    
+
                     jsonFile = await client.GetStringAsync(jsonFileGithub);
                     File.WriteAllText(localCache, jsonFile);
 
@@ -73,23 +73,20 @@ namespace CrossPlatformProject
                         titleSearch = true;
                     }
                 }
-            //filters by search when the user types in a genre or a title(doesn't have to be the full title)
-                if (titleSearch)
-                {
-                    chosenMovie.Add(movie);
-                }
+                //filters by search when the user types in a genre or a title(doesn't have to be the full title)
+                
                 //can't use !String.ISNullOrEmpty for a list as it can only work for strings
-                if(movie.Genre != null)
+                if (movie.Genre != null)
                 {
-                    foreach(var genre in movie.Genre)
+                    foreach (var genre in movie.Genre)
                     {
-                        if(genre.ToLower().Contains(searchText))
+                        if (genre.ToLower().Contains(searchText))
                         {
                             genreSearch = true;
                         }
                     }
                 }
-                if(genreSearch)
+                if (titleSearch || genreSearch)
                 {
                     chosenMovie.Add(movie);
                 }
@@ -97,6 +94,7 @@ namespace CrossPlatformProject
             }
             MoviesList.ItemsSource = chosenMovie;
         }
-        }
-}
+    
 
+    }
+}

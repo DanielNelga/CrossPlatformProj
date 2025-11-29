@@ -1,28 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossPlatformProject.MainPage"
-             Title ="Movies">
+             Title="Movies">
 
-    <ScrollView>
-        <StackLayout Padding="20">
-            <SearchBar x:Name="SearchBox"
-                       Placeholder="Search by name or by genre"
-                       TextChanged="Search"/>
 
-            <ListView x:Name="MoviesList">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Emoji}"
-                                  Detail="{Binding Title}">
-                            
-                        </TextCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                
-            </ListView>
+    <Grid RowDefinitions="*, auto">
 
-        </StackLayout>
-    </ScrollView>
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20">
+
+                <SearchBar x:Name="SearchBox"
+                           Placeholder="Search by name or by genre"
+                           TextChanged="Search"/>
+
+                <ListView x:Name="MoviesList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Emoji}"
+                                      Detail="{Binding Title}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="1"
+              BackgroundColor="DarkGrey"
+              Padding="10"
+              ColumnDefinitions="*,*,*">
+
+            <Button Text="Home"
+                    TextColor="White"
+                    Grid.Column="0"/>
+
+            <Button Text="Favourites"
+                    TextColor="White"
+                    Grid.Column="1"/>
+
+            <Button Text="Settings"
+                    TextColor="White"
+                    Grid.Column="2"/>
+
+        </Grid>
+
+    </Grid>
 
 </ContentPage>
