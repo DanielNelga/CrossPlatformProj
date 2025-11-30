@@ -95,7 +95,5 @@ namespace CrossPlatformProject
             }
             MoviesList.ItemsSource = chosenMovie;
         }
-    
-
     }
 }
