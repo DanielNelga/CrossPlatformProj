@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Threading.Tasks;
 namespace CrossPlatformProject
 {
     //MainPage
@@ -95,5 +96,22 @@ namespace CrossPlatformProject
             }
             MoviesList.ItemsSource = chosenMovie;
         }
+        //When user clicks on movie in list, this event gets called
+        private async void MoviesList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item is Movie selectedMovie)
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    //key and value
+                    {"Movie", selectedMovie }
+                };
+
+                await Shell.Current.GoToAsync(nameof(MovieDetailPage), parameters);
+
+                ((ListView)sender).SelectedItem = null;
+            }
+        }
+
     }
 }

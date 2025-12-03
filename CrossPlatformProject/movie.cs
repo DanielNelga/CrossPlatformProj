@@ -11,5 +11,7 @@ namespace CrossPlatformProject
         public List<string> Genre { get; set; }
         [JsonPropertyName("emoji")]
         public string Emoji { get; set; }
+
+        public string GenreDisplay { get; set; }
     }
 }

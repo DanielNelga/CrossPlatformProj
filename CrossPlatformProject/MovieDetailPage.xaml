@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossPlatformProject.MovieDetailPage"
+             Title="Movie Details">
+    
+    <VerticalStackLayout Padding="20">
+        <Label Text="{Binding Emoji}" FontSize="30" HorizontalOptions="Center"></Label>
+        <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+        <Label Text=  "{Binding GenreDisplay}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+        <Button Text="Home Page" HeightRequest="45" WidthRequest="120" HorizontalOptions="End" VerticalOptions="End" Clicked="BackToMainPage_Clicked"></Button>
+    
+    </VerticalStackLayout>
+</ContentPage>

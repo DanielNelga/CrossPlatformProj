@@ -5,6 +5,10 @@
         public AppShell()
         {
             InitializeComponent();
+            //navigation betwen pages
+            Routing.RegisterRoute(nameof(MovieDetailPage), typeof(MovieDetailPage));
         }
+
+        
     }
 }
