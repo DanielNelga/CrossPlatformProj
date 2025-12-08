@@ -34,7 +34,8 @@
 
             <Button Text="Home"
                     TextColor="White"
-                    Grid.Column="0"/>
+                    Grid.Column="0"
+                    Clicked="BackToMainPage_Clicked"/>
 
             <Button Text="Favourites"
                     TextColor="White"

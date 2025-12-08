@@ -3,12 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossPlatformProject.MovieDetailPage"
              Title="Movie Details">
-    
-    <VerticalStackLayout Padding="20">
-        <Label Text="{Binding Emoji}" FontSize="30" HorizontalOptions="Center"></Label>
-        <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-        <Label Text=  "{Binding GenreDisplay}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
-        <Button Text="Home Page" HeightRequest="45" WidthRequest="120" HorizontalOptions="End" VerticalOptions="End" Clicked="BackToMainPage_Clicked"></Button>
-    
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="auto, *,auto " Padding="20" RowSpacing="15">
+
+
+        <VerticalStackLayout Grid.Row="0" Spacing="8" HorizontalOptions="Center">
+            <Label Text="{Binding Emoji}" FontSize="30" HorizontalOptions="Center" ></Label>
+            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" Grid.Row="1" ></Label>
+            <Label Text=  "{Binding GenreDisplay}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
+            
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="2"
+          BackgroundColor="DarkGrey"
+          Padding="10"
+          ColumnDefinitions="*,*,*">
+
+            <Button Text="Home"
+                TextColor="White"
+                Grid.Column="0"
+                    Clicked="BackToMainPage_Clicked"/>
+
+            <Button Text="Favourites"
+                TextColor="White"
+                Grid.Column="1"/>
+
+            <Button Text="Settings"
+                TextColor="White"
+                Grid.Column="2"
+                Clicked="Settings_Clicked" />
+
+        </Grid>
+
+    </Grid>
 </ContentPage>
