@@ -113,5 +113,10 @@ namespace CrossPlatformProject
             }
         }
 
+        
+            private async void Settings_Clicked(object sender, EventArgs e)
+            {
+                 await Shell.Current.GoToAsync(nameof(Settings));
+            }
     }
 }
