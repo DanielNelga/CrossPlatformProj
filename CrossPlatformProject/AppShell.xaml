@@ -10,6 +10,16 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    
+
+    <ShellContent
+    Title="Settings"
+    ContentTemplate="{DataTemplate local:Settings}"
+    Route="Settings" />
+
+    <ShellContent
+    Title="Favourites Page"
+    ContentTemplate="{DataTemplate local:FavouritesPage}"
+    Route="FavouritesPage" />
+
 
 </Shell>
