@@ -18,4 +18,9 @@ public partial class Settings : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(Settings));
     }
+
+    private async void Favourites_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(FavouritesPage));
+    }
 }

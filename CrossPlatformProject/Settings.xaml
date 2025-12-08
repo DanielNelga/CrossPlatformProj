@@ -30,13 +30,15 @@
         <Button Text="Favourites"
             TextColor="White"
             Grid.Column="1"
-                 HeightRequest="30"/>
+                 HeightRequest="30"
+                 Clicked="Favourites_Clicked"/>
 
         <Button Text="Settings"
             TextColor="White"
             Grid.Column="2"
             Clicked="Settings_Clicked"
-                HeightRequest="30"/>
+                HeightRequest="30"
+                IsEnabled="False"/>
 
     </Grid>
 

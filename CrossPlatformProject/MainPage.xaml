@@ -35,11 +35,13 @@
             <Button Text="Home"
                     TextColor="White"
                     Grid.Column="0"
-                    Clicked="BackToMainPage_Clicked"/>
+                    Clicked="BackToMainPage_Clicked"
+                    IsEnabled="False"/>
 
             <Button Text="Favourites"
                     TextColor="White"
-                    Grid.Column="1"/>
+                    Grid.Column="1"
+                    Clicked="Favourites_Clicked"/>
 
             <Button Text="Settings"
                     TextColor="White"

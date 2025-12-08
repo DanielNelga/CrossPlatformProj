@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossPlatformProject.FavouritesPage"
+             Title="Favourites Page">
+    
+    
+    <Grid RowDefinitions="auto, *, auto" Padding="20">
+        <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
+
+            <Label 
+         Text="Favourites"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center"
+         FontSize="36"
+         FontAttributes="Bold"/>
+        </VerticalStackLayout>
+        <ContentView Grid.Row="1"></ContentView>
+
+        <Grid Grid.Row="2"
+   BackgroundColor="DarkGrey"
+   Padding="10"
+   ColumnDefinitions="*,*,*">
+
+            <Button Text="Home"
+         TextColor="White"
+         Grid.Column="0"
+             Clicked="BackToMainPage_Clicked"
+              HeightRequest="30"/>
+
+            <Button Text="Favourites"
+         TextColor="White"
+         Grid.Column="1"
+              HeightRequest="30"
+                    IsEnabled="False"/>
+
+            <Button Text="Settings"
+         TextColor="White"
+         Grid.Column="2"
+         Clicked="Settings_Clicked"
+             HeightRequest="30"/>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

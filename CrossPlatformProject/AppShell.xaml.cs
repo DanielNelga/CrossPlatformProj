@@ -9,6 +9,8 @@
             Routing.RegisterRoute(nameof(MovieDetailPage), typeof(MovieDetailPage));
             //settings page navigation by pressing the button on bottom nav bar
             Routing.RegisterRoute(nameof(Settings), typeof(Settings));
+            //nav to favourites page
+            Routing.RegisterRoute(nameof(FavouritesPage), typeof(FavouritesPage));
         }
 
         
