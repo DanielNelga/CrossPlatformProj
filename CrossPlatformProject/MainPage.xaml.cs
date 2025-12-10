@@ -116,17 +116,23 @@ namespace CrossPlatformProject
         
         private async void Settings_Clicked(object sender, EventArgs e)
         {
+            //goes straight to settings as the 
+
             await Shell.Current.GoToAsync("//Settings");
         }
 
         private async void BackToMainPage_Clicked(object sender, EventArgs e)
         {
+            //goes straight to mainpage as the // skips all the previous pages
+
             await Shell.Current.GoToAsync("//MainPage");
 
         }
 
         private async void Favourites_Clicked(object sender, EventArgs e)
         {
+            //goes straight to favourites as the // skips all the previous pages
+
             await Shell.Current.GoToAsync("//FavouritesPage");
         }
     }
