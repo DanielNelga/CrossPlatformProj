@@ -5,6 +5,8 @@
              Title="Settings Menu">
 
     <Grid RowDefinitions="auto, *, auto" Padding="20">
+        
+        
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
         <Label 
@@ -13,7 +15,16 @@
             HorizontalOptions="Center"
             FontSize="36"
             FontAttributes="Bold"/>
-    </VerticalStackLayout>
+            
+            
+            <HorizontalStackLayout Padding="20" Spacing="8">
+                <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"></Label>
+                <Switch x:Name="DarkModeSwitch" Toggled="DarkMode_Toggled"></Switch>
+
+            </HorizontalStackLayout>
+        
+        </VerticalStackLayout>
+        
         <ContentView Grid.Row="1"></ContentView>
 
     <Grid Grid.Row="2"
