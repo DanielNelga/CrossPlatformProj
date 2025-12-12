@@ -1,9 +1,11 @@
+using System.Diagnostics;
+
 namespace CrossPlatformProject;
 
-public partial class Settings : ContentPage
+public partial class SettingsPage : ContentPage
 {
     private SettingsList MovieSettings;
-	public Settings()
+	public SettingsPage()
 	{
         InitializeComponent();
 	}
@@ -12,9 +14,20 @@ public partial class Settings : ContentPage
     {
         
         base.OnAppearing();
-        MovieSettings = ManageSettings.Load();
-        DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
+        try
+        {
+            MovieSettings = ManageSettings.Load() ?? new SettingsList();
 
+            if (DarkModeSwitch != null)
+            {
+                DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
+            }
+            DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex);
+        }
 
     }
 
@@ -26,16 +39,12 @@ public partial class Settings : ContentPage
 
     }
 
-    private async void Settings_Clicked(object sender, EventArgs e)
-    {
-        //goes straight to settings
-        await Shell.Current.GoToAsync("//Settings");
-    }
+    
 
     private async void Favourites_Clicked(object sender, EventArgs e)
     {
         //goes straight to favourites as the // skips all the previous pages
-        await Shell.Current.GoToAsync("//FavouritesPage");
+        await Shell.Current.GoToAsync("FavouritesPage");
     }
 
     private void DarkMode_Toggled(object sender, ToggledEventArgs e)

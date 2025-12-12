@@ -16,14 +16,16 @@ namespace CrossPlatformProject
 
         public MainPage()
         {
+            System.Diagnostics.Debug.WriteLine("MainPage constructor started");
             InitializeComponent();
+            System.Diagnostics.Debug.WriteLine("MainPage InitializeComponent finished");
             LoadMovies();
         }
 
         private async void LoadMovies()
         {
-            try
-            {
+            
+            
                 string jsonFile;
                 //going to create a case, if the program doesn't find the file instead of crashing
                 if (!File.Exists(localCache))
@@ -42,13 +44,8 @@ namespace CrossPlatformProject
                 }
                 allMovies = JsonSerializer.Deserialize<List<Movie>>(jsonFile);
                 MoviesList.ItemsSource = allMovies;
-
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error, issue detected ", ex.Message, "OK");
-
-            }
+            
+           
 
         }
         private void Search(object sender, TextChangedEventArgs e)
@@ -118,14 +115,14 @@ namespace CrossPlatformProject
         {
             //goes straight to settings as the 
 
-            await Shell.Current.GoToAsync("//Settings");
+            await Shell.Current.GoToAsync("Setting");
         }
 
         private async void BackToMainPage_Clicked(object sender, EventArgs e)
         {
             //goes straight to mainpage as the // skips all the previous pages
 
-            await Shell.Current.GoToAsync("//MainPage");
+            await Shell.Current.GoToAsync("MainPage");
 
         }
 
@@ -133,7 +130,7 @@ namespace CrossPlatformProject
         {
             //goes straight to favourites as the // skips all the previous pages
 
-            await Shell.Current.GoToAsync("//FavouritesPage");
+            await Shell.Current.GoToAsync("FavouritesPage");
         }
     }
 }

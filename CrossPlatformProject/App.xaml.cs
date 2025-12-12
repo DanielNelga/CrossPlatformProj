@@ -5,11 +5,21 @@
         public App()
         {
             InitializeComponent();
+
+            try
+            {
+                var settings = ManageSettings.Load();
+                UserAppTheme = settings.DarkMode ? AppTheme.Dark : AppTheme.Light;
+            }
+            catch (Exception ex)
+            {
+                UserAppTheme = AppTheme.Light;
+            }
+
+            MainPage = new AppShell();
+
         }
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
-        }
+
     }
 }

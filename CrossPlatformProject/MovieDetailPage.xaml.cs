@@ -35,13 +35,13 @@ public partial class MovieDetailPage : ContentPage
     {
         //goes straight to settings as the // skips all the previous pages
 
-        await Shell.Current.GoToAsync("//Settings");
+        await Shell.Current.GoToAsync("Setting");
     }
 
     private async void Favourites_Clicked(object sender, EventArgs e)
     {
         //goes straight to favourites as the // skips all the previous pages
 
-        await Shell.Current.GoToAsync("//FavouritesPage");
+        await Shell.Current.GoToAsync("FavouritesPage");
     }
 }
