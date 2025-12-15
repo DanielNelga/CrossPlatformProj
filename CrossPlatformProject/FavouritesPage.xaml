@@ -9,19 +9,20 @@
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
             <Label 
-         Text="Favourites"
-         VerticalOptions="Center" 
-         HorizontalOptions="Center"
-         FontSize="36"
-         FontAttributes="Bold"/>
+                 Text="Favourites Page"
+                 VerticalOptions="Center" 
+                 HorizontalOptions="Center"
+                 FontSize="36"
+                 FontAttributes="Bold"/>
         </VerticalStackLayout>
         <ContentView Grid.Row="1"></ContentView>
 
         <Grid Grid.Row="2"
-   BackgroundColor="DarkGrey"
-   Padding="10"
-   ColumnDefinitions="*,*,*">
+               BackgroundColor="DarkGrey"
+               Padding="10"
+               ColumnDefinitions="*,*,*">
 
+            <!--Created Navigation buttons at the bottoms of every page in the app-->
             <Button Text="Home"
          TextColor="White"
          Grid.Column="0"

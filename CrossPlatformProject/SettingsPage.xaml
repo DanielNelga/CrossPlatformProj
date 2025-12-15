@@ -31,7 +31,8 @@
       Padding="10"
       ColumnDefinitions="*,*,*">
 
-        <Button Text="Home"
+            <!--Created Navigation buttons at the bottoms of every page in the app-->
+            <Button Text="Home"
             TextColor="White"
             Grid.Column="0"
                 Clicked="BackToMainPage_Clicked"
