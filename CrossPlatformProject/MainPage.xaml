@@ -15,11 +15,24 @@
                            TextChanged="Search"
                            Grid.Row="0"/>
 
-               <ListView x:Name="MoviesList" Grid.Row="1" ItemTapped="MoviesList_ItemTapped">
+               <ListView x:Name="MoviesList" Grid.Row="1" ItemTapped="MoviesList_ItemTapped" >
                      <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Emoji}"
-                                      Detail="{Binding Title}" />
+                            <ViewCell>
+                        <VerticalStackLayout>
+
+                            <Label Text="{Binding Emoji}"
+                                       FontSize="20"
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}">
+                                </Label>
+
+                                <Label Text="{Binding Title}"
+                                       FontSize="16"
+                                       TextColor="{AppThemeBinding Light=Black, Dark=White}">
+                                </Label>
+
+                        </VerticalStackLayout>
+                    </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
