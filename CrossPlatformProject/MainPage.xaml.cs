@@ -6,6 +6,8 @@ namespace CrossPlatformProject
     public partial class MainPage : ContentPage
     {
         private IDispatcherTimer _clockTimer;
+        private bool _sortAscendingOrder = true;
+        private List<Movie> _currentView = new List<Movie>();
 
         //using the json API can getting movies+movie objects from here
         string jsonFileGithub = "https://raw.githubusercontent.com/DonH-ITS/jsonfiles/refs/heads/main/moviesemoji.json";
@@ -46,8 +48,13 @@ namespace CrossPlatformProject
                 }
                 allMovies = JsonSerializer.Deserialize<List<Movie>>(jsonFile);
                 MoviesList.ItemsSource = allMovies;
-            
-           
+
+                 allMovies = JsonSerializer.Deserialize<List<Movie>>(jsonFile) ?? new List<Movie>();
+                 _currentView = allMovies.ToList();
+                 MoviesList.ItemsSource = _currentView;
+
+
+
 
         }
         private void Search(object sender, TextChangedEventArgs e)
@@ -57,9 +64,11 @@ namespace CrossPlatformProject
             //when the user loads the program or has an empty search bar, it will display all the movies
             if (String.IsNullOrEmpty(searchText))
             {
-                MoviesList.ItemsSource = allMovies;
+                _currentView = allMovies.ToList();
+                MoviesList.ItemsSource = _currentView;
                 return;
             }
+
             List<Movie> chosenMovie = new List<Movie>();
             foreach (Movie movie in allMovies)
             {
@@ -93,7 +102,9 @@ namespace CrossPlatformProject
                 }
 
             }
-            MoviesList.ItemsSource = chosenMovie;
+            _currentView = chosenMovie;
+            MoviesList.ItemsSource = _currentView;
+
         }
         //When user clicks on movie in list, this event gets called
         private async void MoviesList_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -161,5 +172,34 @@ namespace CrossPlatformProject
         {
             clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
         }
+
+        private void SortButton_Clicked(object sender, EventArgs e)
+        {
+            if (_currentView == null || _currentView.Count == 0)
+                return;
+
+            if (_sortAscendingOrder)
+            {
+                _currentView = _currentView
+                    .OrderBy(m => m.Title ?? string.Empty)
+                    .ToList();
+
+                SortButton.Text = "Z–A";
+            }
+            else
+            {
+                _currentView = _currentView
+                    .OrderByDescending(m => m.Title ?? string.Empty)
+                    .ToList();
+
+                SortButton.Text = "A–Z";
+            }
+
+            _sortAscendingOrder = !_sortAscendingOrder;
+
+            MoviesList.ItemsSource = _currentView;
+        }
+
+       
     }
 }
