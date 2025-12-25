@@ -6,6 +6,8 @@
     
     
     <Grid RowDefinitions="auto, *, auto" Padding="20">
+
+        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"></Label>
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
             <Label 

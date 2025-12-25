@@ -5,8 +5,9 @@
              Title="Settings Menu">
 
     <Grid RowDefinitions="auto, *, auto" Padding="20">
-        
-        
+
+        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"></Label>
+
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
         <Label 
@@ -21,6 +22,10 @@
                 <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"></Label>
                 <Switch x:Name="DarkModeSwitch" Toggled="DarkMode_Toggled"></Switch>
 
+                <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"></Label>
+                <Slider Minimum="12" Maximum="30" Value="{Binding Source={x:Static Application.Current}, Path=Resources[AppFontSize],  Mode=TwoWay}"></Slider>
+
+                
             </HorizontalStackLayout>
         
         </VerticalStackLayout>

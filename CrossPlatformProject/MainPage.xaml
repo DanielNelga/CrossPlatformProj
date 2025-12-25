@@ -4,18 +4,20 @@
              x:Class="CrossPlatformProject.MainPage"
              Title="Movie Explorer">
 
-
     <Grid RowDefinitions="auto, *,auto " Padding="20">
 
 
-       
-           
-                <SearchBar x:Name="SearchBox"
+        <Grid Grid.Row="0" ColumnDefinitions="*,auto" VerticalOptions="Center">
+
+            <SearchBar x:Name="SearchBox"
                            Placeholder="Search by name or by genre"
                            TextChanged="Search"
                            Grid.Row="0"/>
 
-               <ListView x:Name="MoviesList" Grid.Row="1" ItemTapped="MoviesList_ItemTapped" >
+            <Label x:Name="clockLabel" Grid.Column="1" Margin="10,0,0,0" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"></Label>
+
+        </Grid>
+        <ListView x:Name="MoviesList" Grid.Row="1" ItemTapped="MoviesList_ItemTapped" >
                      <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

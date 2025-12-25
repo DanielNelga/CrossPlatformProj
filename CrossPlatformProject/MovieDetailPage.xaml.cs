@@ -1,12 +1,14 @@
-using System.Collections.Generic;
 namespace CrossPlatformProject;
 
 
 [QueryProperty(nameof(Movie), "Movie")]
+
 public partial class MovieDetailPage : ContentPage
 {
-	
-	public Movie Movie { get; set; }
+    private IDispatcherTimer _clockTimer;
+
+
+    public Movie Movie { get; set; }
 	public MovieDetailPage()
 	{
 		InitializeComponent();
@@ -20,7 +22,14 @@ public partial class MovieDetailPage : ContentPage
 			//display the genres in the movieDetailPage when user clicked on the movie in search list
 			Movie.GenreDisplay = string.Join(",", Movie.Genre);
 			BindingContext = Movie;
-		}
+
+            AppClock();
+
+            _clockTimer = Dispatcher.CreateTimer();
+            _clockTimer.Interval = TimeSpan.FromSeconds(1);
+            _clockTimer.Tick += (s, e) => AppClock();
+            _clockTimer.Start();
+        }
     }
 	//home page button when you click on the button in the movieDetailPage
 	private async void BackToMainPage_Clicked(object sender, EventArgs e)
@@ -43,5 +52,17 @@ public partial class MovieDetailPage : ContentPage
         //goes straight to favourites as the // skips all the previous pages
 
         await Shell.Current.GoToAsync("FavouritesPage");
+    }
+
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        _clockTimer?.Stop();
+    }
+
+    private void AppClock()
+    {
+        clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
     }
 }

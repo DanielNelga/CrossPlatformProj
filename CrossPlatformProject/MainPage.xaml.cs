@@ -5,6 +5,8 @@ namespace CrossPlatformProject
     //MainPage
     public partial class MainPage : ContentPage
     {
+        private IDispatcherTimer _clockTimer;
+
         //using the json API can getting movies+movie objects from here
         string jsonFileGithub = "https://raw.githubusercontent.com/DonH-ITS/jsonfiles/refs/heads/main/moviesemoji.json";
 
@@ -131,6 +133,33 @@ namespace CrossPlatformProject
             //goes straight to favourites as the // skips all the previous pages
 
             await Shell.Current.GoToAsync("FavouritesPage");
+        }
+        protected override void OnAppearing()
+        {
+
+            base.OnAppearing();
+           
+
+            AppClock();
+
+            _clockTimer = Dispatcher.CreateTimer();
+            _clockTimer.Interval = TimeSpan.FromSeconds(1);
+            _clockTimer.Tick += (s, e) => AppClock();
+            _clockTimer.Start();
+
+
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            _clockTimer?.Stop();
+        }
+
+        //Displaying the live clock
+        private void AppClock()
+        {
+            clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

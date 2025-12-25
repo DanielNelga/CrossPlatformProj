@@ -1,10 +1,10 @@
-using System.Diagnostics;
 
 namespace CrossPlatformProject;
 
 public partial class SettingsPage : ContentPage
 {
     private SettingsList MovieSettings;
+    private IDispatcherTimer _clockTimer;
 	public SettingsPage()
 	{
         InitializeComponent();
@@ -29,6 +29,26 @@ public partial class SettingsPage : ContentPage
             System.Diagnostics.Debug.WriteLine(ex);
         }
 
+        AppClock();
+
+        _clockTimer = Dispatcher.CreateTimer();
+        _clockTimer.Interval = TimeSpan.FromSeconds(1);
+        _clockTimer.Tick += (s, e) => AppClock();
+        _clockTimer.Start();
+
+
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        _clockTimer?.Stop();
+    }
+
+    //Displaying the live clock
+    private void AppClock()
+    {
+        clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
     }
 
     //home page button when you click on the button in the movieDetailPage

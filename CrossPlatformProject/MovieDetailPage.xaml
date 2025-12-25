@@ -6,10 +6,12 @@
 
     <Grid RowDefinitions="auto, *,auto " Padding="20" RowSpacing="15">
 
-
+        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"></Label>
+        
         <VerticalStackLayout Grid.Row="0" Spacing="8" HorizontalOptions="Center">
             <Label Text="{Binding Emoji}" FontSize="30" HorizontalOptions="Center" ></Label>
-            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" Grid.Row="1" ></Label>
+            <Label Text="{Binding Title}" FontSize="{Binding Source={x:Static Application.Current},
+                          Path=Resources[AppFontSize]}" FontAttributes="Bold" HorizontalOptions="Center" Grid.Row="1" ></Label>
             <Label Text=  "{Binding GenreDisplay}" HorizontalOptions="Center" FontAttributes="Bold"></Label>
             
         </VerticalStackLayout>
