@@ -1,10 +1,13 @@
-﻿namespace CrossPlatformProject
+﻿using CrossPlatformProject.Services;
+namespace CrossPlatformProject
 {
     public partial class App : Application
     {
-        public App()
+        private readonly AuthService _auth;
+        public App(AuthService auth)
         {
             InitializeComponent();
+            _auth = auth;
 
             try
             {
@@ -19,7 +22,15 @@
             MainPage = new AppShell();
 
         }
+        protected override async void OnStart()
+        {
+            base.OnStart();
 
+            if (!await _auth.IsLoggedInAsync())
+            {
+                await Shell.Current.GoToAsync(nameof(LoginPage));
+            }
+        }
 
     }
 }

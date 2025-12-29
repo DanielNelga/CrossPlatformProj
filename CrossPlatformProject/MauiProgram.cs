@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using CrossPlatformProject.Services;
 
 namespace CrossPlatformProject
 {
@@ -15,8 +16,11 @@ namespace CrossPlatformProject
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<AuthService>();
+            builder.Services.AddTransient<LoginPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
