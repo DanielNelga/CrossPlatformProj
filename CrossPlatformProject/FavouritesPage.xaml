@@ -17,7 +17,15 @@
                  FontSize="36"
                  FontAttributes="Bold"/>
         </VerticalStackLayout>
-        <ContentView Grid.Row="1"></ContentView>
+
+        <ListView x:Name="FavouritesList" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" Detail="{Binding Emoji}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
 
         <Grid Grid.Row="2"
                BackgroundColor="DarkGrey"

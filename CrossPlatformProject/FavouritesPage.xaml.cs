@@ -1,3 +1,4 @@
+using CrossPlatformProject.Services;
 namespace CrossPlatformProject;
 
 public partial class FavouritesPage : ContentPage
@@ -24,7 +25,9 @@ public partial class FavouritesPage : ContentPage
     {
 
         base.OnAppearing();
-       
+
+        var favourites = FavouritesStore.Load();
+        FavouritesList.ItemsSource = favourites;
 
         AppClock();
 

@@ -1,3 +1,4 @@
+using CrossPlatformProject.Services;
 namespace CrossPlatformProject;
 
 
@@ -64,5 +65,11 @@ public partial class MovieDetailPage : ContentPage
     private void AppClock()
     {
         clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
+    }
+
+    private async void AddToFavourites_Clicked(object sender, EventArgs e)
+    {
+        FavouritesStore.Add(Movie);
+        await DisplayAlert("Success ", "Movie added to favourites", "OK");
     }
 }
