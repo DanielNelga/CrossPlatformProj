@@ -7,6 +7,7 @@
             InitializeComponent();
 
             //navigation betwen pages
+            Routing.RegisterRoute(nameof(SignupPage), typeof(SignupPage));
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute("Setting", typeof(SettingsPage));
             Routing.RegisterRoute("FavouritesPage", typeof(FavouritesPage));

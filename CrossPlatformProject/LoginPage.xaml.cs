@@ -4,12 +4,12 @@ namespace CrossPlatformProject;
 
 public partial class LoginPage : ContentPage
 {
-    private readonly AuthService _auth;
+    
 
-    public LoginPage(AuthService auth)
+    public LoginPage()
     {
         InitializeComponent();
-        _auth = auth;
+   
     }
 
     private async void Login_Clicked(object sender, EventArgs e)
@@ -19,7 +19,7 @@ public partial class LoginPage : ContentPage
         var username = UsernameEntry.Text?.Trim() ?? "";
         var password = PasswordEntry.Text ?? "";
 
-        var ok = await _auth.LoginAsync(username, password);
+        bool ok = UserStore.ValidateLogin(username, password);
         if (!ok)
         {
             ErrorLabel.Text = "Invalid username or password";
@@ -28,6 +28,13 @@ public partial class LoginPage : ContentPage
         }
 
         // Go to main page and clear back stack
+        Preferences.Set("LoggedInUser", username);
         await Shell.Current.GoToAsync("//MainPage");
     }
-}
+
+        private async void Signup_Clicked(object sender, EventArgs e)
+        {
+             await Shell.Current.GoToAsync(nameof(SignupPage));
+        }
+    }
+

@@ -5,13 +5,15 @@
              Title="Login">
 
     <VerticalStackLayout Padding="24" Spacing="12" VerticalOptions="Center">
-        <Label Text="Welcome" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Label Text="Welcome" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"></Label>
 
-        <Entry x:Name="UsernameEntry" Placeholder="Username" />
-        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
+        <Entry x:Name="UsernameEntry" Placeholder="Username" ></Entry>
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" ></Entry>
 
-        <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" />
+        <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" ></Label>
 
-        <Button Text="Log in" Clicked="Login_Clicked" />
+        <Button Text="Log in" Clicked="Login_Clicked" ></Button>
+        <Button Text="Sign up" Clicked="Signup_Clicked" />
+
     </VerticalStackLayout>
 </ContentPage>

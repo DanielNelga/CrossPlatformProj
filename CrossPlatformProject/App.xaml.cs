@@ -4,10 +4,10 @@ namespace CrossPlatformProject
     public partial class App : Application
     {
         private readonly AuthService _auth;
-        public App(AuthService auth)
+        public App()
         {
             InitializeComponent();
-            _auth = auth;
+       
 
             try
             {
@@ -26,9 +26,9 @@ namespace CrossPlatformProject
         {
             base.OnStart();
 
-            if (!await _auth.IsLoggedInAsync())
+            if(!Preferences.ContainsKey("LoggedInUser"))
             {
-                await Shell.Current.GoToAsync(nameof(LoginPage));
+                Shell.Current.GoToAsync(nameof(LoginPage));
             }
         }
 

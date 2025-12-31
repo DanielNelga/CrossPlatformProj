@@ -24,7 +24,7 @@
 
                 <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"></Label>
                 <Slider Minimum="12" Maximum="30" Value="{Binding Source={x:Static Application.Current}, Path=Resources[AppFontSize],  Mode=TwoWay}"></Slider>
-
+                <Button Text="Log Out" TextColor="White" BackgroundColor="Black" Clicked="Logout_Clicked"></Button>
                 
             </HorizontalStackLayout>
         
@@ -54,6 +54,8 @@
             Grid.Column="2"
                 HeightRequest="30"
                 IsEnabled="False"/>
+        
+        
 
     </Grid>
 

@@ -74,4 +74,12 @@ public partial class SettingsPage : ContentPage
 
         Application.Current.UserAppTheme = e.Value ? AppTheme.Dark : AppTheme.Light;
     }
+
+    private async void Logout_Clicked(object sender, EventArgs e)
+    {
+        Preferences.Remove("LoggedInUser");
+
+        await Shell.Current.GoToAsync("LoginPage");
+    }
+
 }
