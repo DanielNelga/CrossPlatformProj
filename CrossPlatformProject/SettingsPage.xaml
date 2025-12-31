@@ -6,58 +6,58 @@
 
     <Grid RowDefinitions="auto, *, auto" Padding="20">
 
-        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"></Label>
+        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"/>
 
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
-        <Label 
-            Text="Settings"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            FontSize="36"
-            FontAttributes="Bold"/>
-            
-            
-            <HorizontalStackLayout Padding="20" Spacing="8">
-                <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"></Label>
-                <Switch x:Name="DarkModeSwitch" Toggled="DarkMode_Toggled"></Switch>
 
-                <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"></Label>
-                <Slider Minimum="12" Maximum="30" Value="{Binding Source={x:Static Application.Current}, Path=Resources[AppFontSize],  Mode=TwoWay}"></Slider>
-                <Button Text="Log Out" TextColor="White" BackgroundColor="Black" Clicked="Logout_Clicked"></Button>
-                
+            <Label  Text="Settings"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    FontSize="36"
+                    FontAttributes="Bold"/>
+
+
+            <HorizontalStackLayout Padding="20" Spacing="8">
+                <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"/>
+                <Switch x:Name="DarkModeSwitch" Toggled="DarkMode_Toggled"/>
+
+                <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"/>
+                <Slider Minimum="12" Maximum="30" Value="{Binding Source={x:Static Application.Current}, Path=Resources[AppFontSize],  Mode=TwoWay}"/>
+                <Button Text="Log Out" TextColor="White" BackgroundColor="Black" Clicked="Logout_Clicked"/>
+
             </HorizontalStackLayout>
         
         </VerticalStackLayout>
-        
 
-    <Grid Grid.Row="2"
-      BackgroundColor="DarkGrey"
-      Padding="10"
-      ColumnDefinitions="*,*,*">
+
+        <Grid Grid.Row="2"
+              BackgroundColor="DarkGrey"
+              Padding="10"
+              ColumnDefinitions="*,*,*">
 
             <!--Created Navigation buttons at the bottoms of every page in the app-->
             <Button Text="Home"
-            TextColor="White"
-            Grid.Column="0"
-                Clicked="BackToMainPage_Clicked"
-                 HeightRequest="30"/>
+                    TextColor="White"
+                    Grid.Column="0"
+                    Clicked="BackToMainPage_Clicked"
+                    HeightRequest="30"/>
 
-        <Button Text="Favourites"
-            TextColor="White"
-            Grid.Column="1"
-                 HeightRequest="30"
-                 Clicked="Favourites_Clicked"/>
-
-        <Button Text="Settings"
-            TextColor="White"
-            Grid.Column="2"
+            <Button Text="Favourites"
+                TextColor="White"
+                Grid.Column="1"
                 HeightRequest="30"
-                IsEnabled="False"/>
-        
-        
+                Clicked="Favourites_Clicked"/>
 
-    </Grid>
+            <Button Text="Settings"
+                    TextColor="White"
+                    Grid.Column="2"
+                    HeightRequest="30"
+                    IsEnabled="False"/>
+
+
+
+        </Grid>
 
     </Grid>
 </ContentPage>

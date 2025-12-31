@@ -10,9 +10,8 @@
         <Grid Grid.Row="0" ColumnDefinitions="*,auto,auto" VerticalOptions="Center">
 
             <SearchBar x:Name="SearchBox"
-                           Placeholder="Search by name or by genre"
-                           TextChanged="Search"
-                           />
+                       Placeholder="Search by name or by genre"
+                       TextChanged="Search" />
 
             <Button x:Name="SortButton"
                     Grid.Column="1"
@@ -31,27 +30,27 @@
             
 
         </Grid>
+        
+        
         <ListView x:Name="MoviesList" Grid.Row="1" ItemTapped="MoviesList_ItemTapped" >
                      <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                        <VerticalStackLayout>
+                                <VerticalStackLayout>
 
                             <Label Text="{Binding Emoji}"
-                                       FontSize="20"
-                                       TextColor="{AppThemeBinding Light=Black, Dark=White}">
-                                </Label>
+                                                   FontSize="20"
+                                                   TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
 
-                                <Label Text="{Binding Title}"
-                                       FontSize="16"
-                                       TextColor="{AppThemeBinding Light=Black, Dark=White}">
-                                </Label>
 
+                            <Label Text="{Binding Title}"
+                                                   FontSize="16"
+                                                   TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
                         </VerticalStackLayout>
-                    </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </ViewCell>
+                         </DataTemplate>
+                     </ListView.ItemTemplate>
+        </ListView>
 
           
        

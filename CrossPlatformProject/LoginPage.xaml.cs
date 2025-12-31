@@ -20,6 +20,7 @@ public partial class LoginPage : ContentPage
         var password = PasswordEntry.Text ?? "";
 
         bool ok = UserStore.ValidateLogin(username, password);
+
         if (!ok)
         {
             ErrorLabel.Text = "Invalid username or password";
@@ -27,14 +28,13 @@ public partial class LoginPage : ContentPage
             return;
         }
 
-        // Go to main page and clear back stack
         Preferences.Set("LoggedInUser", username);
         await Shell.Current.GoToAsync("//MainPage");
     }
 
-        private async void Signup_Clicked(object sender, EventArgs e)
-        {
-             await Shell.Current.GoToAsync(nameof(SignupPage));
-        }
+    private async void Signup_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(SignupPage));
     }
+}
 

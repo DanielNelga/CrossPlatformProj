@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using System.Threading.Tasks;
 namespace CrossPlatformProject
 {
     //MainPage
@@ -46,6 +45,7 @@ namespace CrossPlatformProject
                 {
                     jsonFile = File.ReadAllText(localCache);
                 }
+
                 allMovies = JsonSerializer.Deserialize<List<Movie>>(jsonFile);
                 MoviesList.ItemsSource = allMovies;
 
@@ -61,6 +61,7 @@ namespace CrossPlatformProject
         {
             //making search not case sensitive by using .ToLower();
             string searchText = e.NewTextValue.ToLower();
+
             //when the user loads the program or has an empty search bar, it will display all the movies
             if (String.IsNullOrEmpty(searchText))
             {
@@ -74,6 +75,8 @@ namespace CrossPlatformProject
             {
                 bool titleSearch = false;
                 bool genreSearch = false;
+
+
                 //again making the search not case sensitive
                 if (!String.IsNullOrEmpty(movie.Title))
                 {
@@ -82,6 +85,7 @@ namespace CrossPlatformProject
                         titleSearch = true;
                     }
                 }
+
                 //filters by search when the user types in a genre or a title(doesn't have to be the full title)
                 
                 //can't use !String.ISNullOrEmpty for a list as it can only work for strings
@@ -95,6 +99,8 @@ namespace CrossPlatformProject
                         }
                     }
                 }
+
+
                 //filters movies
                 if (titleSearch || genreSearch)
                 {
@@ -102,10 +108,14 @@ namespace CrossPlatformProject
                 }
 
             }
+
+
             _currentView = chosenMovie;
             MoviesList.ItemsSource = _currentView;
 
         }
+
+
         //When user clicks on movie in list, this event gets called
         private async void MoviesList_ItemTapped(object sender, ItemTappedEventArgs e)
         {

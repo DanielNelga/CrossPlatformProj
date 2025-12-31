@@ -7,7 +7,12 @@
     
     <Grid RowDefinitions="auto, *, auto" Padding="20">
 
-        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"></Label>
+        <Label x:Name="clockLabel"
+               HorizontalOptions="End"
+               VerticalOptions="Start" 
+               FontAttributes="Bold"
+               FontSize="16"/>
+        
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
             <Label 
@@ -16,6 +21,8 @@
                  HorizontalOptions="Center"
                  FontSize="36"
                  FontAttributes="Bold"/>
+            
+            
         </VerticalStackLayout>
 
         <ListView x:Name="FavouritesList" Grid.Row="1">
@@ -33,23 +40,23 @@
                ColumnDefinitions="*,*,*">
 
             <!--Created Navigation buttons at the bottoms of every page in the app-->
-            <Button Text="Home"
-         TextColor="White"
-         Grid.Column="0"
-             Clicked="BackToMainPage_Clicked"
-              HeightRequest="30"/>
+                <Button Text="Home"
+                        TextColor="White"
+                        Grid.Column="0"
+                        Clicked="BackToMainPage_Clicked"
+                        HeightRequest="30"/>
 
-            <Button Text="Favourites"
-         TextColor="White"
-         Grid.Column="1"
-              HeightRequest="30"
-                    IsEnabled="False"/>
+                <Button Text="Favourites"
+                        TextColor="White"
+                        Grid.Column="1"
+                        HeightRequest="30"
+                        IsEnabled="False"/>
 
-            <Button Text="Settings"
-         TextColor="White"
-         Grid.Column="2"
-         Clicked="Settings_Clicked"
-             HeightRequest="30"/>
+                <Button Text="Settings"
+                        TextColor="White"
+                        Grid.Column="2"
+                        Clicked="Settings_Clicked"
+                        HeightRequest="30"/>   
 
         </Grid>
 

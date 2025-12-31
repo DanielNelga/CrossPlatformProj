@@ -6,6 +6,7 @@ namespace CrossPlatformProject;
 
 public partial class MovieDetailPage : ContentPage
 {
+
     private IDispatcherTimer _clockTimer;
 
 
@@ -32,6 +33,8 @@ public partial class MovieDetailPage : ContentPage
             _clockTimer.Start();
         }
     }
+
+
 	//home page button when you click on the button in the movieDetailPage
 	private async void BackToMainPage_Clicked(object sender, EventArgs e)
 	{

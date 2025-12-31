@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-
+﻿
 namespace CrossPlatformProject.Services
 {
     public class AuthService

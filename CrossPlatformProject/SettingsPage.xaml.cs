@@ -5,6 +5,8 @@ public partial class SettingsPage : ContentPage
 {
     private SettingsList MovieSettings;
     private IDispatcherTimer _clockTimer;
+
+
 	public SettingsPage()
 	{
         InitializeComponent();
@@ -14,6 +16,7 @@ public partial class SettingsPage : ContentPage
     {
         
         base.OnAppearing();
+
         try
         {
             MovieSettings = ManageSettings.Load() ?? new SettingsList();
@@ -22,8 +25,10 @@ public partial class SettingsPage : ContentPage
             {
                 DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
             }
+
             DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
         }
+
         catch (Exception ex)
         {
             System.Diagnostics.Debug.WriteLine(ex);
