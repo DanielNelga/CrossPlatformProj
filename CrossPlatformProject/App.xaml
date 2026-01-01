@@ -5,6 +5,18 @@
              x:Class="CrossPlatformProject.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="BgColor">Black</Color>
+
+            <Color x:Key="TitleColor">Gold</Color>
+            <Color x:Key="SubTextColor">Gold</Color>
+
+            <Color x:Key="EntryBg">Gold</Color>
+            <Color x:Key="EntryText">Black</Color>
+            <Color x:Key="EntryPlaceholder">Black</Color>
+
+            <Color x:Key="ButtonBg">#B9A7FF</Color>
+            <Color x:Key="ButtonText">Black</Color>
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

@@ -77,6 +77,8 @@ public partial class SettingsPage : ContentPage
         MovieSettings.DarkMode = e.Value;
         ManageSettings.Save(MovieSettings);
 
+        ((App)Application.Current).ApplyTheme(e.Value);
+
         Application.Current.UserAppTheme = e.Value ? AppTheme.Dark : AppTheme.Light;
     }
 

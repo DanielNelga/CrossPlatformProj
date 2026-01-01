@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CrossPlatformProject.FavouritesPage"
-             Title="Favourites Page">
+             x:Class="CrossPlatformProject.FavouritesPage">
     
     
     <Grid RowDefinitions="auto, *, auto" Padding="20">
@@ -11,7 +10,8 @@
                HorizontalOptions="End"
                VerticalOptions="Start" 
                FontAttributes="Bold"
-               FontSize="16"/>
+               FontSize="16"
+               TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
         
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
@@ -20,7 +20,8 @@
                  VerticalOptions="Center" 
                  HorizontalOptions="Center"
                  FontSize="36"
-                 FontAttributes="Bold"/>
+                 FontAttributes="Bold"
+                TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
             
             
         </VerticalStackLayout>
@@ -28,7 +29,7 @@
         <ListView x:Name="FavouritesList" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Title}" Detail="{Binding Emoji}" />
+                    <TextCell Text="{Binding Title}" TextColor="{AppThemeBinding Light=Black, Dark=Gold}" Detail="{Binding Emoji}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

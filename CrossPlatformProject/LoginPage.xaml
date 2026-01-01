@@ -2,17 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossPlatformProject.LoginPage"
-             Title="Login">
+             Title="Login"
+             BackgroundColor="{DynamicResource BgColor}">
 
-    <VerticalStackLayout Padding="24" Spacing="12" VerticalOptions="Center">
-        <Label Text="Welcome" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"/>
-        <Entry x:Name="UsernameEntry" Placeholder="Username" />
-        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
 
-        <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" />
+        <VerticalStackLayout Padding="24" Spacing="12" VerticalOptions="Center" >
+        <Label Text="Movie Explorer" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{DynamicResource TitleColor}"/>
 
-        <Button Text="Log in" Clicked="Login_Clicked" />
-        <Button Text="Sign up" Clicked="Signup_Clicked" />
+        <Label Text="Discover and save your favourite movies" FontSize="14" Opacity="0.7" HorizontalOptions="Center" TextColor="{DynamicResource SubTextColor}"/>
+        <Entry x:Name="UsernameEntry" Placeholder="Username" Margin="0.8" HeightRequest="50" WidthRequest="350" HorizontalOptions="Center" BackgroundColor="{DynamicResource EntryBg}" PlaceholderColor="{DynamicResource EntryPlaceholder}"/>
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" Margin="0.8" HeightRequest="50" WidthRequest="350" HorizontalOptions="Center" BackgroundColor="{DynamicResource EntryBg}" PlaceholderColor="{DynamicResource EntryPlaceholder}"/>
 
-    </VerticalStackLayout>
+            <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" />
+
+            <Button Text="Log in" Clicked="Login_Clicked" HeightRequest="40 " WidthRequest="150" />
+        <Button Text="Dont have an account? Sign Up" Clicked="Signup_Clicked" HeightRequest="40 " WidthRequest="250" BackgroundColor="Transparent" TextColor="{DynamicResource SubTextColor}"/>
+
+
+        </VerticalStackLayout>
 </ContentPage>

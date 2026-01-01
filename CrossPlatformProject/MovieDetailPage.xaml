@@ -2,18 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossPlatformProject.MovieDetailPage"
-             Title="Movie Details">
+             Title="Movie Details"
+             >
 
     <Grid RowDefinitions="auto, *,auto " Padding="20" RowSpacing="15">
 
         <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"/>
 
         <VerticalStackLayout Grid.Row="0" Spacing="8" HorizontalOptions="Center">
-            <Label Text="Here you can find the Movie name, the genres and the related Emoji. You can also add the movies to favourites." FontSize="20"/>
-            <Label Text="{Binding Emoji}" FontSize="30" HorizontalOptions="Center" />
-            <Label Text="{Binding Title}" FontSize="{Binding Source={x:Static Application.Current},
-                          Path=Resources[AppFontSize]}" FontAttributes="Bold" HorizontalOptions="Center" Grid.Row="1" />
-            <Label Text=  "{Binding GenreDisplay}" HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label Text="Here you can find the Movie name, the genres and the related Emoji." FontSize="20" TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
+            <Label Text=" You can also add the movies to favourites." FontSize="20" TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
+            <Label Text="{Binding Emoji}" FontSize="30" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
+            <Label Text=  "{Binding GenreDisplay}" HorizontalOptions="Center" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
 
             <Button Text="Add to Favourites"
                     TextColor="White"

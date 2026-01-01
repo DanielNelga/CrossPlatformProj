@@ -15,16 +15,19 @@
                     VerticalOptions="Center" 
                     HorizontalOptions="Center"
                     FontSize="36"
-                    FontAttributes="Bold"/>
+                    FontAttributes="Bold"
+                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
 
 
             <HorizontalStackLayout Padding="20" Spacing="8">
-                <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"/>
+                <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"
+                       TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
                 <Switch x:Name="DarkModeSwitch" Toggled="DarkMode_Toggled"/>
 
-                <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"/>
-                <Slider Minimum="12" Maximum="30" Value="{Binding Source={x:Static Application.Current}, Path=Resources[AppFontSize],  Mode=TwoWay}"/>
-                <Button Text="Log Out" TextColor="White" BackgroundColor="Black" Clicked="Logout_Clicked"/>
+                <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                <Button Text="Log Out" BackgroundColor="Black" Clicked="Logout_Clicked"
+                        TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
 
             </HorizontalStackLayout>
         
@@ -38,19 +41,19 @@
 
             <!--Created Navigation buttons at the bottoms of every page in the app-->
             <Button Text="Home"
-                    TextColor="White"
+                    TextColor="Black"
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
                     HeightRequest="30"/>
 
             <Button Text="Favourites"
-                TextColor="White"
+                TextColor="Black"
                 Grid.Column="1"
                 HeightRequest="30"
                 Clicked="Favourites_Clicked"/>
 
             <Button Text="Settings"
-                    TextColor="White"
+                    TextColor="Black"
                     Grid.Column="2"
                     HeightRequest="30"
                     IsEnabled="False"/>
