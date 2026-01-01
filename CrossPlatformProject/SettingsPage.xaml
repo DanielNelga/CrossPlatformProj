@@ -41,15 +41,18 @@
                        TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
                 
                 
-                <Button Text="Log Out" 
-                        BackgroundColor="{DynamicResource SubTextColor}"
-                        HorizontalOptions="End"
-                        VerticalOptions="End"
-                        Clicked="Logout_Clicked"
-                        TextColor="{AppThemeBinding Light=Black, Dark=black}"/>
+               
 
             </HorizontalStackLayout>
-        
+            
+            
+            <Button Text="Log Out" 
+                    BackgroundColor="{DynamicResource SubTextColor}"
+                    HorizontalOptions="Fill"
+                    Clicked="Logout_Clicked"
+                    TextColor="{AppThemeBinding Light=Black, Dark=black}"/>
+            
+            
         </VerticalStackLayout>
 
 
@@ -57,6 +60,8 @@
               BackgroundColor="DarkGrey"
               Padding="10"
               ColumnDefinitions="*,*,*">
+
+          
 
             <!--Created Navigation buttons at the bottoms of every page in the app-->
             <Button Text="Home"
