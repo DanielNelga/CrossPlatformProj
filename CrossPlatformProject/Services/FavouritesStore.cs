@@ -2,12 +2,20 @@
 
 namespace CrossPlatformProject.Services
 {
+
     public static class FavouritesStore
     {
-        static string file = Path.Combine(FileSystem.AppDataDirectory, "favourites.json");
 
+        static string FilePath()
+        {
+            string user = Preferences.Get("LoggedInUser", "guest");
+            return Path.Combine(FileSystem.AppDataDirectory, $"favourites_{user}.json");
+
+        }
         public static List<Movie> Load()
         {
+            string file = FilePath();
+
             if (File.Exists(file) == false)
             {
                 return new List<Movie>();
@@ -33,6 +41,8 @@ namespace CrossPlatformProject.Services
 
         public static void Save(List<Movie> movies)
         {
+            string file = FilePath();
+
             string json = JsonSerializer.Serialize(movies, new JsonSerializerOptions
             {
                 WriteIndented = true
