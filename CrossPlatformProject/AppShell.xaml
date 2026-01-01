@@ -4,14 +4,16 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CrossPlatformProject"
-    Title="CrossPlatformProject">
+    >
     <Shell.TitleView>
         <Label Text="Movie Explorer"
-        TextColor="Gold"
+        TextColor="{DynamicResource ButtonBg}"
         FontSize="20"
         FontAttributes="Bold"
         HorizontalOptions="Center"
-        VerticalOptions="Center"/>
+        VerticalOptions="Center"
+        BackgroundColor="{DynamicResource BgColor}"/>
+
     </Shell.TitleView>
 
     <ShellContent

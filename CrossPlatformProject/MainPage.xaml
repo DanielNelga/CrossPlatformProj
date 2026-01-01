@@ -12,12 +12,16 @@
 
             <SearchBar x:Name="SearchBox"
                        Placeholder="Search by name or by genre"
-                       TextChanged="Search" />
+                       TextChanged="Search"
+                       BackgroundColor="{DynamicResource ButtonBg}"
+                       TextColor="{DynamicResource ButtonText}"/>
 
             <Button x:Name="SortButton"
                     Grid.Column="1"
                     Text="A-Z"
                     Margin="10,0"
+                    BackgroundColor="{DynamicResource ButtonBg}"
+                    TextColor="{DynamicResource ButtonText}"
                     Clicked="SortButton_Clicked" />
             
 
@@ -27,7 +31,8 @@
                    VerticalOptions="End"
                    HorizontalOptions="End"
                    FontAttributes="Bold" 
-                   FontSize="16"/>
+                   FontSize="16"
+                   TextColor="{DynamicResource ButtonBg }"/>
             
 
         </Grid>

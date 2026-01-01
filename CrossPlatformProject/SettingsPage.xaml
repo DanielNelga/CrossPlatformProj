@@ -7,7 +7,11 @@
 
     <Grid RowDefinitions="auto, *, auto" Padding="20">
 
-        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"/>
+        <Label x:Name="clockLabel"
+               HorizontalOptions="End"
+               VerticalOptions="Start"
+               FontAttributes="Bold"
+               FontSize="16"/>
 
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
@@ -21,14 +25,28 @@
 
 
             <HorizontalStackLayout Padding="20" Spacing="8">
-                <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"
+                
+                <Label Text="Dark Mode"
+                       FontSize="30"
+                       VerticalOptions="Center"
                        TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
-                <Switch x:Name="DarkModeSwitch" Toggled="DarkMode_Toggled"/>
+                
+                <Switch x:Name="DarkModeSwitch"
+                        Toggled="DarkMode_Toggled"/>
 
-                <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"
+                <Label Text="Adjust Font Size"
+                       FontAttributes="Bold" 
+                       FontSize="20" 
+                       HorizontalOptions="Center"
                        TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
-                <Button Text="Log Out" BackgroundColor="Black" Clicked="Logout_Clicked"
-                        TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
+                
+                
+                <Button Text="Log Out" 
+                        BackgroundColor="{DynamicResource SubTextColor}"
+                        HorizontalOptions="End"
+                        VerticalOptions="End"
+                        Clicked="Logout_Clicked"
+                        TextColor="{AppThemeBinding Light=Black, Dark=black}"/>
 
             </HorizontalStackLayout>
         
