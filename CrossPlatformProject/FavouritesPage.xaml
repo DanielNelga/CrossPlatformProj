@@ -45,19 +45,22 @@
                         TextColor="White"
                         Grid.Column="0"
                         Clicked="BackToMainPage_Clicked"
-                        HeightRequest="30"/>
+                        HeightRequest="30"
+                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
 
                 <Button Text="Favourites"
                         TextColor="White"
                         Grid.Column="1"
                         HeightRequest="30"
-                        IsEnabled="False"/>
+                        IsEnabled="False"
+                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
 
                 <Button Text="Settings"
                         TextColor="White"
                         Grid.Column="2"
                         Clicked="Settings_Clicked"
-                        HeightRequest="30"/>   
+                        HeightRequest="30"
+                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>   
 
         </Grid>
 
