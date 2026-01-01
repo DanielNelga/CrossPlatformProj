@@ -30,7 +30,7 @@
           Padding="10"
           ColumnDefinitions="*,*,*">
 
-            <!--Created Navigation buttons at the bottoms of every page in the app-->
+            <!--Created Navigation buttons at the bottoms of every page in the app, instead of using tabbar-->
             <Button Text="Home"
                     TextColor="White"
                     Grid.Column="0"
