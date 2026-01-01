@@ -15,7 +15,7 @@
 
             <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" />
 
-            <Button Text="Log in" Clicked="Login_Clicked" HeightRequest="40 " WidthRequest="150" />
+        <Button Text="Log in" Clicked="Login_Clicked" HeightRequest="40 " WidthRequest="150" TextColor="{DynamicResource SubTextColor}" />
         <Button Text="Dont have an account? Sign Up" Clicked="Signup_Clicked" HeightRequest="40 " WidthRequest="250" BackgroundColor="Transparent" TextColor="{DynamicResource SubTextColor}"/>
 
 

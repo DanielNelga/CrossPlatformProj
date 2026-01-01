@@ -26,10 +26,23 @@
             
         </VerticalStackLayout>
 
-        <ListView x:Name="FavouritesList" Grid.Row="1">
+        <ListView x:Name="FavouritesList" Grid.Row="1" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Title}" TextColor="{AppThemeBinding Light=Black, Dark=Gold}" Detail="{Binding Emoji}" />
+                    <ViewCell>
+                        <VerticalStackLayout Padding="10,5">
+                            <Label
+                                    Text="{Binding Title}"
+                                    FontSize="16"
+                                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}"
+                                    FontAttributes="Bold" />
+
+                            <Label
+                                    Text="{Binding Emoji}"
+                                    FontSize="20"/> 
+                            
+                        </VerticalStackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

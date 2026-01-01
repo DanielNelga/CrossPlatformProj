@@ -5,6 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CrossPlatformProject"
     Title="CrossPlatformProject">
+    <Shell.TitleView>
+        <Label Text="Movie Explorer"
+        TextColor="Gold"
+        FontSize="20"
+        FontAttributes="Bold"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+    </Shell.TitleView>
 
     <ShellContent
             Title="Home"
