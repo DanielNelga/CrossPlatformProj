@@ -19,7 +19,16 @@ public partial class LoginPage : ContentPage
         var username = UsernameEntry.Text?.Trim() ?? "";
         var password = PasswordEntry.Text ?? "";
 
+        if(password.Length <8)
+        {
+            ErrorLabel.Text = "Password must be at least 8 characters long.";
+            ErrorLabel.IsVisible = true;
+            return;
+        }
+
         bool ok = UserStore.ValidateLogin(username, password);
+
+
 
         if (!ok)
         {

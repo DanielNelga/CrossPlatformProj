@@ -24,12 +24,22 @@ namespace CrossPlatformProject
                 return;
             }
 
+            if (password.Length < 8)
+            {
+                ErrorLabel.Text = "Password must be at least 8 characters long.";
+                ErrorLabel.IsVisible = true;
+                return;
+            }
+
+
             if (password != confirm)
             {
                 ErrorLabel.Text = "Passwords do not match.";
                 ErrorLabel.IsVisible = true;
                 return;
             }
+
+            
 
             bool userCreated = UserStore.CreateUser(username, password);
 

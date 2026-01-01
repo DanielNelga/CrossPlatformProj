@@ -4,6 +4,10 @@ namespace CrossPlatformProject
     public partial class App : Application
     {
         private readonly AuthService _auth;
+        static readonly Color Navy = Color.FromArgb("#0F172A");
+        static readonly Color Champagne = Color.FromArgb("#E6D3A3");
+        static readonly Color OnChampagne = Colors.Black;
+
         public App()
         {
             InitializeComponent();
@@ -37,19 +41,21 @@ namespace CrossPlatformProject
         {
             if (dark)
             {
-                Resources["BgColor"] = Colors.Black;
-                Resources["TitleColor"] = Colors.Gold;
-                Resources["SubTextColor"] = Colors.Gold;
+                // Dark theme (cinematic)
+                Resources["BgColor"] = Navy;
+                Resources["TitleColor"] = Champagne;
+                Resources["SubTextColor"] = Champagne;
 
-                Resources["EntryBg"] = Colors.Gold;
-                Resources["EntryText"] = Colors.Black;
-                Resources["EntryPlaceholder"] = Colors.Black;
+                Resources["EntryBg"] = Champagne;
+                Resources["EntryText"] = OnChampagne;
+                Resources["EntryPlaceholder"] = OnChampagne;
 
-                Resources["ButtonBg"] = Colors.Gold;
-                Resources["ButtonText"] = Colors.Black;
+                Resources["ButtonBg"] = Champagne;
+                Resources["ButtonText"] = OnChampagne;
             }
             else
             {
+                // Light theme (clean)
                 Resources["BgColor"] = Colors.White;
                 Resources["TitleColor"] = Colors.Black;
                 Resources["SubTextColor"] = Colors.Gray;
@@ -61,6 +67,7 @@ namespace CrossPlatformProject
                 Resources["ButtonBg"] = Colors.Black;
                 Resources["ButtonText"] = Colors.White;
             }
+
         }
 
 

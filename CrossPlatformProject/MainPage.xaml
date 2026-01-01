@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossPlatformProject.MainPage"
-             Title="Movie Explorer">
-    
+             Title="Movie Explorer"
+              BackgroundColor="{DynamicResource BgColor}">
+
     <Grid RowDefinitions="auto, *,auto " Padding="20">
 
 
@@ -40,12 +41,12 @@
 
                             <Label Text="{Binding Emoji}"
                                                    FontSize="20"
-                                                   TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                                                   TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
 
 
                             <Label Text="{Binding Title}"
                                                    FontSize="16"
-                                                   TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                                                   TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
                         </VerticalStackLayout>
                             </ViewCell>
                          </DataTemplate>
@@ -66,19 +67,19 @@
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
                     IsEnabled="False"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=#E6D3A3}"/>
 
             <Button Text="Favourites"
                     TextColor="White"
                     Grid.Column="1"
                     Clicked="Favourites_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=#E6D3A3}"/>
 
             <Button Text="Settings"
                     TextColor="White"
                     Grid.Column="2"
                     Clicked="Settings_Clicked" 
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=#E6D3A3}"/>
 
         </Grid>
 

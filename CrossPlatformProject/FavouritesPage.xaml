@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CrossPlatformProject.FavouritesPage">
-    
-    
+             x:Class="CrossPlatformProject.FavouritesPage"
+             BackgroundColor="{DynamicResource BgColor}">
+
+
     <Grid RowDefinitions="auto, *, auto" Padding="20">
 
         <Label x:Name="clockLabel"
@@ -11,7 +12,7 @@
                VerticalOptions="Start" 
                FontAttributes="Bold"
                FontSize="16"
-               TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+               TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
         
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
@@ -21,7 +22,7 @@
                  HorizontalOptions="Center"
                  FontSize="36"
                  FontAttributes="Bold"
-                TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
             
             
         </VerticalStackLayout>
@@ -34,7 +35,7 @@
                             <Label
                                     Text="{Binding Title}"
                                     FontSize="16"
-                                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}"
+                                    TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"
                                     FontAttributes="Bold" />
 
                             <Label
@@ -59,21 +60,21 @@
                         Grid.Column="0"
                         Clicked="BackToMainPage_Clicked"
                         HeightRequest="30"
-                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
                 <Button Text="Favourites"
                         TextColor="White"
                         Grid.Column="1"
                         HeightRequest="30"
                         IsEnabled="False"
-                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
                 <Button Text="Settings"
                         TextColor="White"
                         Grid.Column="2"
                         Clicked="Settings_Clicked"
                         HeightRequest="30"
-                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>   
+                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>   
 
         </Grid>
 

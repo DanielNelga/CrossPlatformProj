@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossPlatformProject.MovieDetailPage"
              Title="Movie Details"
-             >
+             BackgroundColor="{DynamicResource BgColor}">
 
     <Grid RowDefinitions="auto, *,auto " Padding="20" RowSpacing="15">
 
@@ -36,19 +36,19 @@
                     TextColor="White"
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
             <Button Text="Favourites"
                     TextColor="White"
                     Grid.Column="1"
                     Clicked="Favourites_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
             <Button Text="Settings"
                     TextColor="White"
                     Grid.Column="2"
                     Clicked="Settings_Clicked" 
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
         </Grid>
 

@@ -6,17 +6,66 @@
              BackgroundColor="{DynamicResource BgColor}">
 
 
-        <VerticalStackLayout Padding="24" Spacing="12" VerticalOptions="Center" >
-        <Label Text="Movie Explorer" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{DynamicResource TitleColor}"/>
+        <VerticalStackLayout Padding="24"
+                             Spacing="12"
+                             VerticalOptions="Center" >
+            
+        <Label Text="Movie Explorer"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource TitleColor}"/>
 
-        <Label Text="Discover and save your favourite movies" FontSize="14" Opacity="0.7" HorizontalOptions="Center" TextColor="{DynamicResource SubTextColor}"/>
-        <Entry x:Name="UsernameEntry" Placeholder="Username" Margin="0.8" HeightRequest="50" WidthRequest="350" HorizontalOptions="Center" BackgroundColor="{DynamicResource EntryBg}" PlaceholderColor="{DynamicResource EntryPlaceholder}"/>
-        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" Margin="0.8" HeightRequest="50" WidthRequest="350" HorizontalOptions="Center" BackgroundColor="{DynamicResource EntryBg}" PlaceholderColor="{DynamicResource EntryPlaceholder}"/>
+        <Label Text="Discover and save your favourite movies"
+               FontSize="14"
+               Opacity="0.7"
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource SubTextColor}"/>
+            
+            
+        <Entry x:Name="UsernameEntry"
+               Placeholder="Username" 
+               Margin="0.8" 
+               HeightRequest="50" 
+               WidthRequest="350"
+               HorizontalOptions="Center" 
+               BackgroundColor="{DynamicResource EntryBg}"
+               PlaceholderColor="{DynamicResource EntryPlaceholder}"
+               TextColor="{DynamicResource EntryText}"/>
+            
+            
+        <Entry x:Name="PasswordEntry" 
+               Placeholder="Password" 
+               IsPassword="True"
+               Margin="0.8"
+               HeightRequest="50"
+               WidthRequest="350" 
+               HorizontalOptions="Center"
+               BackgroundColor="{DynamicResource EntryBg}"
+               PlaceholderColor="{DynamicResource EntryPlaceholder}"
+               TextColor="{DynamicResource EntryText}"/>
+            
 
-            <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" />
+        <Label x:Name="ErrorLabel"
+               TextColor="Red"
+               IsVisible="False"
+               HorizontalOptions="Center"/>
+            
 
-        <Button Text="Log in" Clicked="Login_Clicked" HeightRequest="40 " WidthRequest="150" TextColor="{DynamicResource SubTextColor}" />
-        <Button Text="Dont have an account? Sign Up" Clicked="Signup_Clicked" HeightRequest="40 " WidthRequest="250" BackgroundColor="Transparent" TextColor="{DynamicResource SubTextColor}"/>
+        <Button Text="Log in"
+                Clicked="Login_Clicked"
+                HeightRequest="40 "
+                WidthRequest="150"
+                TextColor="{DynamicResource ButtonText}"
+                BackgroundColor="{DynamicResource ButtonBg}" />
+            
+            
+        <Button Text="Dont have an account? Sign Up"
+                Clicked="Signup_Clicked" 
+                HeightRequest="40 "
+                WidthRequest="250" 
+                BackgroundColor="Transparent"
+                TextColor="{DynamicResource TitleColor}"/>
 
 
         </VerticalStackLayout>

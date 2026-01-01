@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossPlatformProject.SettingsPage"
-             Title="Settings Menu">
+             Title="Settings Menu"
+             BackgroundColor="{DynamicResource BgColor}">
 
     <Grid RowDefinitions="auto, *, auto" Padding="20">
 
@@ -16,18 +17,18 @@
                     HorizontalOptions="Center"
                     FontSize="36"
                     FontAttributes="Bold"
-                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                    TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
 
 
             <HorizontalStackLayout Padding="20" Spacing="8">
                 <Label Text="Dark Mode" FontSize="30" VerticalOptions="Center"
-                       TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                       TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
                 <Switch x:Name="DarkModeSwitch" Toggled="DarkMode_Toggled"/>
 
                 <Label Text="Adjust Font Size" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"
-                       TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                       TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
                 <Button Text="Log Out" BackgroundColor="Black" Clicked="Logout_Clicked"
-                        TextColor="{AppThemeBinding Light=Black, Dark=Gold}"/>
+                        TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
 
             </HorizontalStackLayout>
         
@@ -45,21 +46,21 @@
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
                     HeightRequest="30"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
             <Button Text="Favourites"
                 TextColor="Black"
                 Grid.Column="1"
                 HeightRequest="30"
                 Clicked="Favourites_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
             <Button Text="Settings"
                     TextColor="Black"
                     Grid.Column="2"
                     HeightRequest="30"
                     IsEnabled="False"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=Gold}"/>
+                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
 
 
