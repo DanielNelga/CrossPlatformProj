@@ -54,5 +54,30 @@ public partial class FavouritesPage : ContentPage
         clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
     }
 
+    private async void Remove_Clicked(object sender, EventArgs e)
+    {
+        Button btn = sender as Button;
+        Movie movie = btn?.CommandParameter as Movie;
+
+        if (movie == null)
+            return;
+
+        bool confirm = await DisplayAlert(
+            "Remove Favourite",
+            "Are you sure that you want to remove from favourites?",
+            "Yes",
+            "No");
+
+        if (confirm == false)
+            return;
+
+        FavouritesStore.Remove(movie);
+
+        FavouritesList.ItemsSource = FavouritesStore.Load();
+
+        await DisplayAlert("Removed", "Movie removed from favourites", "OK");
+    }
+
+
 
 }

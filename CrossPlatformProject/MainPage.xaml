@@ -42,17 +42,27 @@
                      <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <VerticalStackLayout>
+                                  <HorizontalStackLayout Spacing="12" Padding="6">
 
-                            <Label Text="{Binding Emoji}"
-                                                   FontSize="20"
-                                                   TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
+                                        <Label Text="{Binding Emoji}"
+                                                               FontSize="20"
+                                                               TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
 
+                                         <VerticalStackLayout Spacing="2">
+                                                         <Label Text="{Binding Title}"
+                                                                           FontSize="16"
+                                                                               TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
+                                                         <Label Text="{Binding Year}"
+                                                                       FontSize="13"
+                                                                       Opacity="0.8"
+                                                                       TextColor="{DynamicResource PageTextColor}" />
 
-                            <Label Text="{Binding Title}"
-                                                   FontSize="16"
-                                                   TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
-                        </VerticalStackLayout>
+                                                        <Label Text="{Binding GenreDisplay}"
+                                                               FontSize="13"
+                                                               Opacity="0.8"
+                                                               TextColor="{DynamicResource PageTextColor}" />       
+                                      </VerticalStackLayout>
+                              </HorizontalStackLayout>
                             </ViewCell>
                          </DataTemplate>
                      </ListView.ItemTemplate>

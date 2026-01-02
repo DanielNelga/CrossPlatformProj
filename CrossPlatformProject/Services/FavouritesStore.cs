@@ -66,5 +66,22 @@ namespace CrossPlatformProject.Services
             favourites.Add(movie);
             Save(favourites);
         }
+
+        public static void Remove(Movie movie)
+        {
+            List<Movie> favourites = Load();
+
+            for (int i = 0; i < favourites.Count; i++)
+            {
+                if (favourites[i].Title == movie.Title)
+                {
+                    favourites.RemoveAt(i);
+                    break;
+                }
+            }
+
+            Save(favourites);
+        }
+
     }
 }

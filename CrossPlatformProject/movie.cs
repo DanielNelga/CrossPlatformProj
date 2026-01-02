@@ -9,6 +9,16 @@ namespace CrossPlatformProject
         public string Title { get; set; }
         [JsonPropertyName("genre")]
         public List<string> Genre { get; set; }
+
+        [JsonPropertyName("year")]
+        public int Year { get; set; }
+
+        [JsonPropertyName("director")]
+        public string Director { get; set; }
+
+        [JsonPropertyName("rating")]
+        public double Rating { get; set; }
+
         [JsonPropertyName("emoji")]
         public string Emoji { get; set; }
 
