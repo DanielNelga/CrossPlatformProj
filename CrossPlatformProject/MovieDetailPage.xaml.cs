@@ -73,6 +73,7 @@ public partial class MovieDetailPage : ContentPage
     private async void AddToFavourites_Clicked(object sender, EventArgs e)
     {
         FavouritesStore.Add(Movie);
+        HistoryStore.Add(Movie, "Favourited");
         await DisplayAlert("Success ", "Movie added to favourites", "OK");
     }
 }

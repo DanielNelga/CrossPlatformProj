@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CrossPlatformProject.HistoryPage"
+             Title="History"
+             BackgroundColor="{DynamicResource BgColor}">
+
+    <Grid RowDefinitions="Auto,*,Auto,auto" Padding="20" RowSpacing="15">
+
+        <Label Text="History"
+               FontSize="36"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource SubTextColor}" />
+
+        <ListView x:Name="HistoryList" Grid.Row="1" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="10" ColumnSpacing="12">
+
+                            <Label Text="{Binding Emoji}"
+                                   FontSize="22"
+                                   VerticalOptions="Center"
+                                   TextColor="{DynamicResource PageTextColor}" />
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                <Label Text="{Binding Title}"
+                                       FontSize="16"
+                                       TextColor="{DynamicResource PageTextColor}" />
+
+                                <Label Text="{Binding Genres}"
+                                       FontSize="13"
+                                       Opacity="0.8"
+                                       TextColor="{DynamicResource PageTextColor}" />
+
+                                <Label Text="{Binding Year}"
+                                       FontSize="13"
+                                       Opacity="0.8"
+                                       TextColor="{DynamicResource PageTextColor}" />
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="End">
+                                <Label Text="{Binding Action}"
+                                       FontSize="13"
+                                       FontAttributes="Bold"
+                                       TextColor="{DynamicResource PageTextColor}" />
+
+                                <Label Text="{Binding TimeStamp}"
+                                       FontSize="12"
+                                       Opacity="0.8"
+                                       TextColor="{DynamicResource PageTextColor}" />
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Clear History"
+                Grid.Row="2"
+                Clicked="Clear_Clicked"
+                BackgroundColor="Red"
+                TextColor="White"
+                HeightRequest="40" />
+
+        <Grid Grid.Row="3"
+        BackgroundColor="DarkGrey"
+        Padding="10"
+        ColumnDefinitions="*,*,*">
+
+            <!--Created Navigation buttons at the bottoms of every page in the app-->
+            <Button Text="Home"
+                 TextColor="White"
+                 Grid.Column="0"
+                 Clicked="BackToMainPage_Clicked"
+                 HeightRequest="30"
+                 BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+
+            <Button Text="Favourites"
+                 TextColor="White"
+                 Grid.Column="1"
+                 HeightRequest="30"
+                 Clicked="Favourites_Clicked"
+                 BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+
+            <Button Text="Settings"
+                 TextColor="White"
+                 Grid.Column="2"
+                 Clicked="Settings_Clicked"
+                 HeightRequest="30"
+                 BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

@@ -34,11 +34,12 @@
                 <Switch x:Name="DarkModeSwitch"
                         Toggled="DarkMode_Toggled"/>
 
-                <Label Text="Adjust Font Size"
-                       FontAttributes="Bold" 
-                       FontSize="20" 
-                       HorizontalOptions="Center"
-                       TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
+                <Button Text="View History"
+                        Clicked="History_Clicked" 
+                        FontAttributes="Bold" 
+                        FontSize="20" 
+                        VerticalOptions="Center"
+                        />
                 
                 
                

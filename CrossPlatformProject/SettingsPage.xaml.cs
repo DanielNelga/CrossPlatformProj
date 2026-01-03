@@ -88,5 +88,10 @@ public partial class SettingsPage : ContentPage
 
         await Shell.Current.GoToAsync("LoginPage");
     }
+    private async void History_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(HistoryPage));
+    }
+
 
 }

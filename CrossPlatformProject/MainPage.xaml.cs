@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using CrossPlatformProject.Services;
 namespace CrossPlatformProject
 {
     //MainPage
@@ -19,9 +20,7 @@ namespace CrossPlatformProject
 
         public MainPage()
         {
-            System.Diagnostics.Debug.WriteLine("MainPage constructor started");
             InitializeComponent();
-            System.Diagnostics.Debug.WriteLine("MainPage InitializeComponent finished");
             LoadMovies();
         }
 
@@ -121,6 +120,8 @@ namespace CrossPlatformProject
         {
             if (e.Item is Movie selectedMovie)
             {
+                HistoryStore.Add(selectedMovie, "Viewed");
+
                 var parameters = new Dictionary<string, object>
                 {
                     //key and value
