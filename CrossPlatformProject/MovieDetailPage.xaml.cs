@@ -22,7 +22,7 @@ public partial class MovieDetailPage : ContentPage
 		if (Movie != null)
 		{
 			//display the genres in the movieDetailPage when user clicked on the movie in search list
-			Movie.GenreDisplay = string.Join(",", Movie.Genre);
+			
 			BindingContext = Movie;
 
             AppClock();
