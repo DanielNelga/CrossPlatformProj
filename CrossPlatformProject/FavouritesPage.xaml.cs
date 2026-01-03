@@ -34,6 +34,10 @@ public partial class FavouritesPage : ContentPage
 
         AppClock();
 
+        var settings = ManageSettings.Load() ?? new SettingsList();
+        clockLabel.IsVisible = settings.ShowClock;
+
+
         _clockTimer = Dispatcher.CreateTimer();
         _clockTimer.Interval = TimeSpan.FromSeconds(1);
         _clockTimer.Tick += (s, e) => AppClock();

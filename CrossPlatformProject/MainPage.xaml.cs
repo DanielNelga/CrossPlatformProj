@@ -160,7 +160,9 @@ namespace CrossPlatformProject
         {
 
             base.OnAppearing();
-           
+
+            var settings = ManageSettings.Load() ?? new SettingsList();
+            clockLabel.IsVisible = settings.ShowClock;
 
             AppClock();
 

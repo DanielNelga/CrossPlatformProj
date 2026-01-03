@@ -17,6 +17,8 @@ public partial class SettingsPage : ContentPage
         
         base.OnAppearing();
 
+        
+
         try
         {
             MovieSettings = ManageSettings.Load() ?? new SettingsList();
@@ -34,7 +36,12 @@ public partial class SettingsPage : ContentPage
             System.Diagnostics.Debug.WriteLine(ex);
         }
 
+        ClockSwitch.IsToggled = MovieSettings.ShowClock;
+
         AppClock();
+
+        var settings = ManageSettings.Load() ?? new SettingsList();
+        clockLabel.IsVisible = settings.ShowClock;
 
         _clockTimer = Dispatcher.CreateTimer();
         _clockTimer.Interval = TimeSpan.FromSeconds(1);
@@ -107,6 +114,12 @@ public partial class SettingsPage : ContentPage
 
         CrossPlatformProject.Services.FavouritesStore.Clear();
         
+    }
+
+    private void Clock_Toggled(object sender, ToggledEventArgs e)
+    {
+        MovieSettings.ShowClock = e.Value;
+        ManageSettings.Save(MovieSettings);
     }
 
 

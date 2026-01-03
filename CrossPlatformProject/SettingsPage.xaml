@@ -35,6 +35,17 @@
                 <Switch x:Name="DarkModeSwitch"
                         Toggled="DarkMode_Toggled"/>
 
+                <HorizontalStackLayout Spacing="10" Padding="20">
+                    <Label Text="Show Clock"
+                           FontSize="30"
+                           VerticalOptions="Center" 
+                           TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
+                    
+                    
+                    <Switch x:Name="ClockSwitch"
+                            Toggled="Clock_Toggled" />
+                </HorizontalStackLayout>
+
                 <Button Text="View History"
                         Clicked="History_Clicked" 
                         FontAttributes="Bold" 
