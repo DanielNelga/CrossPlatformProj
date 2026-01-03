@@ -7,7 +7,12 @@
 
     <Grid RowDefinitions="auto, *,auto " Padding="20" RowSpacing="15">
 
-        <Label x:Name="clockLabel" HorizontalOptions="End" VerticalOptions="Start" FontAttributes="Bold" FontSize="16"/>
+        <Label x:Name="clockLabel"
+               HorizontalOptions="End"
+               VerticalOptions="Start"
+               FontAttributes="Bold"
+               FontSize="16"
+               TextColor="{DynamicResource SubTextColor}"/>
 
         <VerticalStackLayout Grid.Row="0" Spacing="8" HorizontalOptions="Center">
             <Label Text="Movie Details Page" HorizontalOptions="Center" FontSize="30" TextColor="{AppThemeBinding Light=Black, Dark=Gold}" Padding="12"/>

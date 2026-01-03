@@ -11,7 +11,8 @@
                HorizontalOptions="End"
                VerticalOptions="Start"
                FontAttributes="Bold"
-               FontSize="16"/>
+               FontSize="16"
+               TextColor="{DynamicResource SubTextColor}"/>
 
         <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
 
