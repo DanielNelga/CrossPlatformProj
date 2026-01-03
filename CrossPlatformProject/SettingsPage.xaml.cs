@@ -93,5 +93,21 @@ public partial class SettingsPage : ContentPage
         await Shell.Current.GoToAsync(nameof(HistoryPage));
     }
 
+    private async void ClearAllFavourites_Clicked(object sender, EventArgs e)
+    {
+        bool confirm = await DisplayAlert(
+                "Clear All Favourites",
+                "Do you really want to clear your favourites?",
+                "Yes",
+                "No"
+            );
+
+        if (confirm == false)
+            return;
+
+        CrossPlatformProject.Services.FavouritesStore.Clear();
+        
+    }
+
 
 }

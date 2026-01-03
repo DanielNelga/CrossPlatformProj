@@ -40,9 +40,18 @@
                         FontSize="20" 
                         VerticalOptions="Center"
                         />
-                
-                
-               
+
+                <Button Text="Clear All Favourites"
+                        Clicked="ClearAllFavourites_Clicked" 
+                        FontAttributes="Bold" 
+                        FontSize="20" 
+                        VerticalOptions="Center"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        />      
+
+
+
 
             </HorizontalStackLayout>
             

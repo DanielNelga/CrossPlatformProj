@@ -83,5 +83,10 @@ namespace CrossPlatformProject.Services
             Save(favourites);
         }
 
+        public static void Clear()
+        {
+            Save(new List<Movie>());
+        }
+
     }
 }
