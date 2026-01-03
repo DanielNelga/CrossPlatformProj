@@ -43,6 +43,7 @@ public partial class SettingsPage : ContentPage
         var settings = ManageSettings.Load() ?? new SettingsList();
         clockLabel.IsVisible = settings.ShowClock;
 
+
         _clockTimer = Dispatcher.CreateTimer();
         _clockTimer.Interval = TimeSpan.FromSeconds(1);
         _clockTimer.Tick += (s, e) => AppClock();
@@ -91,6 +92,19 @@ public partial class SettingsPage : ContentPage
 
     private async void Logout_Clicked(object sender, EventArgs e)
     {
+
+            bool confirm = await DisplayAlert(
+                "Logout",
+                "Do you really want to logout?",
+                "Yes",
+                "No"
+                
+            );
+
+            if (!confirm)
+                return;
+        
+
         Preferences.Remove("LoggedInUser");
 
         await Shell.Current.GoToAsync("LoginPage");
@@ -121,6 +135,7 @@ public partial class SettingsPage : ContentPage
         MovieSettings.ShowClock = e.Value;
         ManageSettings.Save(MovieSettings);
     }
+
 
 
 }

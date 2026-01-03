@@ -7,5 +7,8 @@ namespace CrossPlatformProject
         public bool DarkMode { get; set; } = false;
 
         public bool ShowClock { get; set; } = true;
+
+        public bool ConfirmLogout { get; set; } = true;
+
     }
 }

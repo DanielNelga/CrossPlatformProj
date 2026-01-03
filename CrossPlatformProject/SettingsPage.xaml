@@ -14,7 +14,9 @@
                FontSize="16"
                TextColor="{DynamicResource SubTextColor}"/>
 
-        <VerticalStackLayout  Grid.Row="0"  Spacing="8" HorizontalOptions="Center">
+        <VerticalStackLayout  Grid.Row="0"
+                              Spacing="8"
+                              HorizontalOptions="Fill">
 
 
             <Label  Text="Settings"
@@ -34,8 +36,10 @@
                 
                 <Switch x:Name="DarkModeSwitch"
                         Toggled="DarkMode_Toggled"/>
+                
+            </HorizontalStackLayout>
 
-                <HorizontalStackLayout Spacing="10" Padding="20">
+            <HorizontalStackLayout Spacing="10" Padding="20">
                     <Label Text="Show Clock"
                            FontSize="30"
                            VerticalOptions="Center" 
@@ -44,14 +48,17 @@
                     
                     <Switch x:Name="ClockSwitch"
                             Toggled="Clock_Toggled" />
-                </HorizontalStackLayout>
+                    
+            </HorizontalStackLayout>
+
+                
 
                 <Button Text="View History"
                         Clicked="History_Clicked" 
                         FontAttributes="Bold" 
                         FontSize="20" 
                         VerticalOptions="Center"
-                        />
+                        Padding="15" />
 
                 <Button Text="Clear All Favourites"
                         Clicked="ClearAllFavourites_Clicked" 
@@ -60,19 +67,20 @@
                         VerticalOptions="Center"
                         BackgroundColor="Red"
                         TextColor="White"
-                        />      
+                        Padding="15"/>      
 
 
 
 
-            </HorizontalStackLayout>
+           
             
             
             <Button Text="Log Out" 
                     BackgroundColor="{DynamicResource SubTextColor}"
                     HorizontalOptions="Fill"
                     Clicked="Logout_Clicked"
-                    TextColor="{AppThemeBinding Light=Black, Dark=black}"/>
+                    TextColor="{AppThemeBinding Light=Black, Dark=black}"
+                    Padding="15"/>
             
             
         </VerticalStackLayout>
