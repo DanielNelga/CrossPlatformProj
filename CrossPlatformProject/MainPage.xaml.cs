@@ -156,11 +156,14 @@ namespace CrossPlatformProject
 
             await Shell.Current.GoToAsync("FavouritesPage");
         }
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
 
             base.OnAppearing();
 
+            MoviesList.Opacity = 0;
+            await Task.Delay(120);
+            await MoviesList.FadeTo(1,1150, Easing.CubicInOut);
             var settings = ManageSettings.Load() ?? new SettingsList();
             clockLabel.IsVisible = settings.ShowClock;
 
@@ -178,6 +181,7 @@ namespace CrossPlatformProject
         {
             base.OnDisappearing();
             _clockTimer?.Stop();
+            MoviesList.Opacity = 0;
         }
 
         //Displaying the live clock

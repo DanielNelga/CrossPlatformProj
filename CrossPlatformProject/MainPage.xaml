@@ -38,7 +38,10 @@
         </Grid>
         
         
-        <ListView x:Name="MoviesList" Grid.Row="1" ItemTapped="MoviesList_ItemTapped" >
+        <ListView x:Name="MoviesList"
+                  Grid.Row="1"
+                  ItemTapped="MoviesList_ItemTapped"
+                  Opacity="0">
                      <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
