@@ -4,12 +4,15 @@
              x:Class="CrossPlatformProject.FavouritesPage"
              BackgroundColor="{DynamicResource BgColor}">
 
-
+    <!-- Grid Layout with 3 rows-->
     <Grid RowDefinitions="auto, *, auto" Padding="20">
 
+        <!--First Row which contains the clock and title favourites page-->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="*,Auto"
+              VerticalOptions="Start">
 
-        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" VerticalOptions="Start">
-
+            <!-- clock -->
             <Label x:Name="clockLabel"
                HorizontalOptions="End"
                VerticalOptions="Start" 
@@ -17,46 +20,59 @@
                FontSize="16"
                TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
 
-
+            <!-- favourites page label-->
             <Label 
                  Text="Favourites Page"
                  VerticalOptions="Center" 
                  HorizontalOptions="Center"
                  FontSize="36"
                  FontAttributes="Bold"
-                TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
+                 TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
 
         </Grid>
 
+        <!-- display favourites list here-->
         <ListView x:Name="FavouritesList"
                   Grid.Row="1"
                   Opacity="0">
+            <!--template for the list-->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <!--grid layout for the movies -->
                         <Grid ColumnDefinitions="Auto,*,Auto"
                               Padding="10"
                               ColumnSpacing="12">
 
+                            <!--emoji representing movie -->
                             <Label Text="{Binding Emoji}"
-                                 FontSize="20"
-                                 TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
+                                   FontSize="20"
+                                   TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
 
+                            
                             <VerticalStackLayout Grid.Column="1" Spacing="2">
+
+                                <!--title -->
                                 <Label Text="{Binding Title}"
-                                             FontSize="16"
-                                                 TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
+                                        FontSize="16"
+                                        TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
+
+                                <!--displaying year -->
                                 <Label Text="{Binding Year}"
                                          FontSize="13"
                                          Opacity="0.8"
                                          TextColor="{DynamicResource PageTextColor}" />
 
+                                <!--display genre -->
                                 <Label Text="{Binding GenreDisplay}"
                                  FontSize="13"
                                  Opacity="0.8"
                                  TextColor="{DynamicResource PageTextColor}" />
+                                
+                                
                             </VerticalStackLayout>
 
+                            <!--button to remove from favourites, removes whole object using Commandparameter -->
                             <Button Text="Remove From Favourites"
                                     Grid.Column="2"
                                     Clicked="Remove_Clicked"
@@ -87,6 +103,7 @@
                         HeightRequest="30"
                         BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
+                <!-- button disabled in favourites page -->
                 <Button Text="Favourites"
                         TextColor="White"
                         Grid.Column="1"

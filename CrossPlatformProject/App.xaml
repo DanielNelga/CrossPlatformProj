@@ -6,6 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
 
+            <!--external styles and colour definitions-->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
