@@ -118,7 +118,7 @@ public partial class SettingsPage : ContentPage
     private async void Favourites_Clicked(object sender, EventArgs e)
     {
         //goes straight to favourites as the // skips all the previous pages
-        await Shell.Current.GoToAsync("FavouritesPage");
+        await Shell.Current.GoToAsync(nameof(FavouritesPage));
     }
 
     private void DarkMode_Toggled(object sender, ToggledEventArgs e)

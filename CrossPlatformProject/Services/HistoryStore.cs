@@ -61,17 +61,25 @@ namespace CrossPlatformProject.Services
         //saves history to local storage
         public static void Save(List<HistoryEntry> list)
         {
-            string file = GetFile();
 
-            //serialise history into json
-            string json = JsonSerializer.Serialize(list, new JsonSerializerOptions
+            try
             {
-                //makes readable
-                WriteIndented = true
-            });
+                string file = GetFile();
 
-            //writes data to json file
-            File.WriteAllText(file, json);
+                //serialise history into json
+                string json = JsonSerializer.Serialize(list, new JsonSerializerOptions
+                {
+                    //makes readable
+                    WriteIndented = true
+                });
+
+                //writes data to json file
+                File.WriteAllText(file, json);
+            }
+            catch (Exception) 
+            {  
+
+            }
         }
 
         //adds a new entry for the action that was done(Viewed or Favourited)

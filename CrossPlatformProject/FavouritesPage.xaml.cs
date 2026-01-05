@@ -22,7 +22,7 @@ public partial class FavouritesPage : ContentPage
     //Event handler to go back to Settins page
     private async void Settings_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("Setting");
+        await Shell.Current.GoToAsync(nameof(SettingsPage));
     }
 
     protected override async void OnAppearing()

@@ -62,14 +62,14 @@ public partial class MovieDetailPage : ContentPage
     {
         //goes straight to settings as the // skips all the previous pages
 
-        await Shell.Current.GoToAsync("Setting");
+        await Shell.Current.GoToAsync(nameof(SettingsPage));
     }
 
     private async void Favourites_Clicked(object sender, EventArgs e)
     {
         //goes straight to favourites as the // skips all the previous pages
 
-        await Shell.Current.GoToAsync("FavouritesPage");
+        await Shell.Current.GoToAsync(nameof(FavouritesPage));
     }
 
 

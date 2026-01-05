@@ -39,9 +39,16 @@ namespace CrossPlatformProject.Services
         //saves list of users to local storage
         public static void SaveUsers(List<User> users)
         {
-            //serliase users list into json
-            string json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(usersFile, json);
+            try
+            {
+                //serliase users list into json
+                string json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(usersFile, json);
+            }
+            catch(Exception)
+            {
+
+            }
         }
 
         //creates accounts

@@ -41,7 +41,7 @@
                     <ViewCell>
                         <!--grid layout for the movies -->
                         <Grid ColumnDefinitions="Auto,*,Auto"
-                              Padding="10"
+                              Padding="2"
                               ColumnSpacing="12">
 
                             <!--emoji representing movie -->
@@ -57,19 +57,21 @@
                                         FontSize="16"
                                         TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
 
-                                <!--displaying year -->
-                                <Label Text="{Binding Year}"
-                                         FontSize="13"
-                                         Opacity="0.8"
-                                         TextColor="{DynamicResource PageTextColor}" />
 
                                 <!--display genre -->
                                 <Label Text="{Binding GenreDisplay}"
                                  FontSize="13"
                                  Opacity="0.8"
                                  TextColor="{DynamicResource PageTextColor}" />
-                                
-                                
+
+
+                                <!--displaying year -->
+                                <Label Text="{Binding Year}"
+                                         FontSize="13"
+                                         Opacity="0.8"
+                                         TextColor="{DynamicResource PageTextColor}" />
+
+
                             </VerticalStackLayout>
 
                             <!--button to remove from favourites, removes whole object using Commandparameter -->

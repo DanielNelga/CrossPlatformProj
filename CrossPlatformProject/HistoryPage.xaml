@@ -19,7 +19,8 @@
         <!--list displaying the history -->
         <ListView x:Name="HistoryList"
                   Grid.Row="1"
-                  SeparatorVisibility="None">
+                  SeparatorVisibility="None"
+                  Margin="0,0,0,80">
 
             <!--template for the list -->
             <ListView.ItemTemplate>
@@ -28,7 +29,7 @@
                         
                         <!--layout for each entry -->
                         <Grid ColumnDefinitions="Auto,*,Auto"
-                              Padding="10"
+                              Padding="2"
                               ColumnSpacing="12">
 
                             <!--emoji for movie -->
@@ -97,25 +98,25 @@
 
             <!--Created Navigation buttons at the bottoms of every page in the app-->
             <Button Text="Home"
-                 TextColor="White"
+                 TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                  Grid.Column="0"
                  Clicked="BackToMainPage_Clicked"
                  HeightRequest="30"
-                 BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
             <Button Text="Favourites"
-                 TextColor="White" 
+                 TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                  Grid.Column="1"
                  HeightRequest="30"
                  Clicked="Favourites_Clicked"
-                 BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                 BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
             <Button Text="Settings"
-                 TextColor="White"
+                 TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                  Grid.Column="2"
                  Clicked="Settings_Clicked"
                  HeightRequest="30"
-                 BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                 BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
         </Grid>
 

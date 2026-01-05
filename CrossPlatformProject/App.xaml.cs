@@ -46,7 +46,8 @@ namespace CrossPlatformProject
             //goes to login page if not previously logged in
             if(!Preferences.ContainsKey("LoggedInUser"))
             {
-                Shell.Current.GoToAsync(nameof(LoginPage));
+                await Shell.Current.GoToAsync(nameof(LoginPage));
+
             }
         }
 

@@ -31,14 +31,15 @@ namespace CrossPlatformProject
 
         private async void LoadMovies()
         {
-            
-            
+            try
+            {
+
                 string jsonFile;
                 //going to create a case, if the program doesn't find the file instead of crashing
                 if (!File.Exists(localCache))
                 {
                     //downloads file if it doesn't exist or can't find it it will download it from github and use the string jsonFile to store
-                    HttpClient client = new HttpClient();
+                    using HttpClient client = new HttpClient();
 
                     //download if doesn't exist
                     jsonFile = await client.GetStringAsync(jsonFileGithub);
@@ -47,26 +48,31 @@ namespace CrossPlatformProject
                 }
                 else
                 {
-                //if exist read form local json
+                    //if exist read form local json
                     jsonFile = File.ReadAllText(localCache);
                 }
 
                 //deserialise JSON into a list of Movie objects
-                allMovies = JsonSerializer.Deserialize<List<Movie>>(jsonFile);
-                MoviesList.ItemsSource = allMovies;
+                allMovies = JsonSerializer.Deserialize<List<Movie>>(jsonFile) ?? new List<Movie>();
 
-                
-                //deserialise but will null
-                 allMovies = JsonSerializer.Deserialize<List<Movie>>(jsonFile) ?? new List<Movie>();
-                
                 //initialise current view with all movies
                 _currentView = allMovies.ToList();
+                MoviesList.ItemsSource = _currentView;
 
+
+            }
+
+            catch (Exception ex)
+            {
                 //display in listview
-                 MoviesList.ItemsSource = _currentView;
+                allMovies = new List<Movie>();
+                _currentView = new List<Movie>();
+                MoviesList.ItemsSource = _currentView;
+
+                await DisplayAlert("Error", "Could not load movies (internet/cache issue).", "OK");
 
 
-
+            }
 
         }
         private void Search(object sender, TextChangedEventArgs e)
@@ -159,22 +165,14 @@ namespace CrossPlatformProject
         {
             //goes straight to settings as the 
 
-            await Shell.Current.GoToAsync("Setting");
-        }
-
-        private async void BackToMainPage_Clicked(object sender, EventArgs e)
-        {
-            //goes straight to mainpage as the // skips all the previous pages
-
-            await Shell.Current.GoToAsync("MainPage");
-
+            await Shell.Current.GoToAsync(nameof(SettingsPage));
         }
 
         private async void Favourites_Clicked(object sender, EventArgs e)
         {
             //goes straight to favourites as the // skips all the previous pages
 
-            await Shell.Current.GoToAsync("FavouritesPage");
+             await Shell.Current.GoToAsync(nameof(FavouritesPage));
         }
         protected override async void OnAppearing()
         {
@@ -218,6 +216,7 @@ namespace CrossPlatformProject
         //Displaying the live clock
         private void AppClock()
         {
+            if(clockLabel != null) 
             clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 

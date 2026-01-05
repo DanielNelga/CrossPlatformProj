@@ -17,10 +17,10 @@
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
 
             //settings route
-            Routing.RegisterRoute("Setting", typeof(SettingsPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
 
             //favourites route
-            Routing.RegisterRoute("FavouritesPage", typeof(FavouritesPage));
+            Routing.RegisterRoute(nameof(FavouritesPage), typeof(FavouritesPage));
 
             //movieDetailsPage route
             Routing.RegisterRoute(nameof(MovieDetailPage), typeof(MovieDetailPage));

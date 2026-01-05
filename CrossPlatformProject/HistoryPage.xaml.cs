@@ -48,13 +48,13 @@ namespace CrossPlatformProject
         //navigate back to the favourites page
         private async void Favourites_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("FavouritesPage");
+            await Shell.Current.GoToAsync(nameof(FavouritesPage));
         }
 
         //navigate back to the settingsPage
         private async void Settings_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("Setting");
+            await Shell.Current.GoToAsync(nameof(SettingsPage));
         }
 
     }

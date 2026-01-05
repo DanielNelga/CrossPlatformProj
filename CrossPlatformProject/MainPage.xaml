@@ -53,7 +53,7 @@
             <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                  <HorizontalStackLayout Spacing="12" Padding="4">
+                                  <HorizontalStackLayout Spacing="12" Padding="2">
 
 
                                          <!--the emoji that represents the movie -->
@@ -69,20 +69,22 @@
                                                                 FontSize="16"
                                                                 TextColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
-                                                         <!--The year the movie was released -->
-                                                         <Label Text="{Binding Year}"
-                                                                FontSize="13"
-                                                                Opacity="0.8"
-                                                                TextColor="{DynamicResource PageTextColor}" />
-
+                                             
                                                         <!-- the genre of the movie-->
                                                         <Label Text="{Binding GenreDisplay}"
                                                                FontSize="13"
                                                                Opacity="0.8"
-                                                               TextColor="{DynamicResource PageTextColor}" />       
-                                             
-                                             
-                                        </VerticalStackLayout>
+                                                               TextColor="{DynamicResource PageTextColor}" />
+
+
+                                                         <!--The year the movie was released -->
+                                                         <Label Text="{Binding Year}"
+                                                                FontSize="13"
+                                                                Opacity="0.8"
+                                                                TextColor="{DynamicResource PageTextColor}" />      
+
+
+                            </VerticalStackLayout>
                                  </HorizontalStackLayout>
                             </ViewCell>
                        </DataTemplate>
@@ -101,7 +103,7 @@
             <Button Text="Home"
                     TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="0"
-                    Clicked="BackToMainPage_Clicked"
+                   
                     IsEnabled="False"
                     BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 

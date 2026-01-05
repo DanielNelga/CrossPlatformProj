@@ -54,17 +54,25 @@ namespace CrossPlatformProject.Services
         //saves the list of Favourite movies to local storage
         public static void Save(List<Movie> movies)
         {
-            string file = FilePath();
-
-            //serialise movie list into Json
-            string json = JsonSerializer.Serialize(movies, new JsonSerializerOptions
+            try
             {
-                //readable to us
-                WriteIndented = true
-            });
 
-            //wirte Json data to a file
-            File.WriteAllText(file, json);
+                string file = FilePath();
+
+                //serialise movie list into Json
+                string json = JsonSerializer.Serialize(movies, new JsonSerializerOptions
+                {
+                    //readable to us
+                    WriteIndented = true
+                });
+
+                //wirte Json data to a file
+                File.WriteAllText(file, json);
+            }
+            catch(Exception) 
+            {
+                
+            }
         }
 
         //adds movie to favourites
