@@ -1,4 +1,5 @@
 
+
 namespace CrossPlatformProject;
 
 public partial class SettingsPage : ContentPage
@@ -9,46 +10,56 @@ public partial class SettingsPage : ContentPage
     //timer used for clock
     private IDispatcherTimer _clockTimer;
 
+    private bool _isInitializing;
 
-	public SettingsPage()
+
+    public SettingsPage()
 	{
         InitializeComponent();
 	}
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
-        
         base.OnAppearing();
 
-            //load settings, if unable to, load default settings
-            MovieSettings = ManageSettings.Load() ?? new SettingsList();
+        try
+        {
+            _isInitializing = true;
 
-            if (DarkModeSwitch != null)
+            // Fade in
+            if (PageContainer != null)
             {
-                DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
+                PageContainer.Opacity = 0;
+                await Task.Delay(120);
+                await PageContainer.FadeTo(1, 1150, Easing.CubicInOut);
             }
 
-            DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
-      
-        
-        ClockSwitch.IsToggled = MovieSettings.ShowClock;
+            // Load settings once
+            MovieSettings = ManageSettings.Load() ?? new SettingsList();
 
-        AppClock();
+            // Apply UI values safely
+            if (DarkModeSwitch != null)
+                DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
 
-            //load settings
-        var settings = ManageSettings.Load() ?? new SettingsList();
+            if (ClockSwitch != null)
+                ClockSwitch.IsToggled = MovieSettings.ShowClock;
 
-        //load clock from settings
-        clockLabel.IsVisible = settings.ShowClock;
+            if (clockLabel != null)
+                clockLabel.IsVisible = MovieSettings.ShowClock;
 
-        //clock/timer settings
-        _clockTimer = Dispatcher.CreateTimer();
-        _clockTimer.Interval = TimeSpan.FromSeconds(1);
-        _clockTimer.Tick += (s, e) => AppClock();
-        _clockTimer.Start();
+            EnsureClockTimer();
+            UpdateClockRunningState(MovieSettings.ShowClock);
 
-
+            _isInitializing = false;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"SettingsPage OnAppearing crash: {ex}");
+            await DisplayAlert("Error", $"Settings page failed to load:\n{ex.Message}", "OK");
+        }
     }
+
+
 
     protected override void OnDisappearing()
     {
@@ -56,11 +67,43 @@ public partial class SettingsPage : ContentPage
         _clockTimer?.Stop();
     }
 
-    //Displaying the live clock
-    private void AppClock()
+    //displaying the live clock
+    private void EnsureClockTimer()
     {
-        clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
+        if (_clockTimer != null) 
+            return;
+
+        _clockTimer = Dispatcher.CreateTimer();
+        _clockTimer.Interval = TimeSpan.FromSeconds(1);
+
+        //fire event every sec while running
+        _clockTimer.Tick += (_, __) =>
+        {
+            //only update if it exists + visible
+            if (clockLabel != null && clockLabel.IsVisible)
+                clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
+        };
     }
+
+    private void UpdateClockRunningState(bool shouldRun)
+    {
+        if (_clockTimer == null) 
+            return;
+
+        if (shouldRun)
+        {
+            //update immediately once
+            if (clockLabel != null)
+                clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
+
+            _clockTimer.Start();
+        }
+        else
+        {
+            _clockTimer.Stop();
+        }
+    }
+
 
     //home page button when you click on the button in the movieDetailPage
     private async void BackToMainPage_Clicked(object sender, EventArgs e)
@@ -80,6 +123,11 @@ public partial class SettingsPage : ContentPage
 
     private void DarkMode_Toggled(object sender, ToggledEventArgs e)
     {
+
+        if (_isInitializing)
+            return;
+
+
         //update and save the dark mode settings
         MovieSettings.DarkMode = e.Value;
         ManageSettings.Save(MovieSettings);
@@ -142,7 +190,11 @@ public partial class SettingsPage : ContentPage
     private void Clock_Toggled(object sender, ToggledEventArgs e)
     {
 
-        //update clock visability
+        if (_isInitializing)
+            return;
+
+
+        //update clock visability 
         MovieSettings.ShowClock = e.Value;
         ManageSettings.Save(MovieSettings);
     }

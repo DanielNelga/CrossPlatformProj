@@ -84,8 +84,9 @@
         <Button Text="Clear History"
                 Grid.Row="2"
                 Clicked="Clear_Clicked"
-                BackgroundColor="Red"
-                TextColor="White"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                TextColor="{AppThemeBinding Dark=#0F172A, Light=#E6D3A3}"
+                FontAttributes="Bold"
                 HeightRequest="40" />
 
         <!--4th grid row for the nav buttons-->

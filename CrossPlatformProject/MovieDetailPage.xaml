@@ -26,37 +26,37 @@
             <!--heading page -->
             <Label Text="Movie Details Page"
                    HorizontalOptions="Center"
-                   FontSize="30" TextColor="{AppThemeBinding Light=Black, Dark=Gold}"
+                   FontSize="30" TextColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"
                    Padding="12"/>
 
             <!--description of the page -->
             <Label Text="Here you can find the Movie name, the genres and the related Emoji."
                    HorizontalOptions="Center"
                    FontSize="20"
-                   TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
+                   TextColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}" />
 
             <!--extra instructions -->
             <Label Text=" You can also add the movies to favourites."
                    FontSize="20" 
-                   TextColor="{AppThemeBinding Light=Black, Dark=Gold}"
+                   TextColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"
                    HorizontalOptions="Center"/>
 
             <!--Movie emoji -->
             <Label Text="{Binding Emoji}"
                    FontSize="30"
                    HorizontalOptions="Center"
-                   TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
+                   TextColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}" />
 
             <!--movie genres -->
             <Label Text=  "{Binding GenreDisplay}"
                    HorizontalOptions="Center"
                    FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
+                   TextColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}" />
 
             <!--button to add a movie to the favourites page -->
             <Button Text="Add to Favourites"
-                    TextColor="White"
-                    BackgroundColor="Red"
+                     BackgroundColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                    TextColor="{AppThemeBinding Dark=#0F172A, Light=#E6D3A3}"
                     Clicked="AddToFavourites_Clicked"
                     HeightRequest="40"
                     WidthRequest="150" />
@@ -71,24 +71,24 @@
 
             <!--Created Navigation buttons at the bottoms of every page in the app, instead of using tabbar-->
             <Button Text="Home"
-                    TextColor="White"
+                     TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
             <!--navigate to the favourites page using the nav bar -->
             <Button Text="Favourites"
-                    TextColor="White"
+                     TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="1"
                     Clicked="Favourites_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
             <!--navigate to the settings page using the nav bar -->
             <Button Text="Settings"
-                    TextColor="White"
+                     TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="2"
                     Clicked="Settings_Clicked" 
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
         </Grid>
 

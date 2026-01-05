@@ -77,8 +77,8 @@
                                     Grid.Column="2"
                                     Clicked="Remove_Clicked"
                                     CommandParameter="{Binding .}"
-                                    BackgroundColor="Red"
-                                    TextColor="White"
+                                     BackgroundColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                                    TextColor="{AppThemeBinding Dark=#0F172A, Light=#E6D3A3}"
                                     HeightRequest="35"
                                     WidthRequest="190"
                                     VerticalOptions="Center" />
@@ -97,26 +97,26 @@
 
             <!--Created Navigation buttons at the bottoms of every page in the app-->
                 <Button Text="Home"
-                        TextColor="White"
+                           TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                         Grid.Column="0"
                         Clicked="BackToMainPage_Clicked"
                         HeightRequest="30"
-                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                        BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
                 <!-- button disabled in favourites page -->
                 <Button Text="Favourites"
-                        TextColor="White"
+                        TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                         Grid.Column="1"
                         HeightRequest="30"
                         IsEnabled="False"
-                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                        BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
                 <Button Text="Settings"
-                        TextColor="White"
+                        TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                         Grid.Column="2"
                         Clicked="Settings_Clicked"
                         HeightRequest="30"
-                        BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>   
+                        BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>   
 
         </Grid>
 

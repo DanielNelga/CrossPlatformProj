@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            
              x:Class="CrossPlatformProject.MainPage"
              Title="Movie Explorer"
               BackgroundColor="{DynamicResource BgColor}">
@@ -17,7 +18,7 @@
             <SearchBar x:Name="SearchBox"
                        Placeholder="Search by name or by genre"
                        TextChanged="Search"
-                       BackgroundColor="{DynamicResource ButtonBg}"
+                        BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"
                        TextColor="{DynamicResource ButtonText}"/>
 
             <!--Button to sort the movie list both from A-Z and Z-A -->
@@ -25,8 +26,8 @@
                     Grid.Column="1"
                     Text="A-Z"
                     Margin="10,0"
-                    BackgroundColor="{DynamicResource ButtonBg}"
-                    TextColor="{DynamicResource ButtonText}"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                    TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Clicked="SortButton_Clicked" />
 
             <!--Displays live clock on top right of each page -->
@@ -52,7 +53,7 @@
             <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                  <HorizontalStackLayout Spacing="12" Padding="6">
+                                  <HorizontalStackLayout Spacing="12" Padding="4">
 
 
                                          <!--the emoji that represents the movie -->
@@ -98,7 +99,7 @@
 
             <!--Created Navigation buttons at the bottoms of every page in the app, Home disabled while in home page-->
             <Button Text="Home"
-                    TextColor="White"
+                    TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
                     IsEnabled="False"
@@ -106,14 +107,14 @@
 
             <!--nagivate to the favourites page usingthe bottom nav bar -->
             <Button Text="Favourites"
-                    TextColor="White"
+                    TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="1"
                     Clicked="Favourites_Clicked"
                     BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
             <!--navigate to the settings page using the nav bar -->
             <Button Text="Settings"
-                    TextColor="White"
+                    TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="2"
                     Clicked="Settings_Clicked" 
                     BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>

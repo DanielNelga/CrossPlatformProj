@@ -6,7 +6,11 @@
              BackgroundColor="{DynamicResource BgColor}">
 
     <!--3 row grid layout -->
-    <Grid RowDefinitions="auto, *, auto" Padding="20">
+    <Grid RowDefinitions="auto, *, auto"
+          Padding="20"
+          x:Name="PageContainer"
+          Opacity="0" >
+
 
         <!--clock label -->
         <Label x:Name="clockLabel"
@@ -41,7 +45,9 @@
 
                 <!--switch to enable and disable the feature -->
                 <Switch x:Name="DarkModeSwitch"
-                        Toggled="DarkMode_Toggled"/>
+                        Toggled="DarkMode_Toggled"
+                        OnColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                        VerticalOptions="Center"/>
                 
             </HorizontalStackLayout>
 
@@ -52,39 +58,50 @@
                    <Label  Text="Show Clock"
                            FontSize="30"
                            VerticalOptions="Center" 
+                           HorizontalOptions="Center"
                            TextColor="{AppThemeBinding Light=Black, Dark={DynamicResource SubTextColor}}"/>
 
                     <!-- switch to show or display the clock-->
                     <Switch x:Name="ClockSwitch"
-                                Toggled="Clock_Toggled" />
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Toggled="Clock_Toggled"
+                            OnColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"/>
                     
             </HorizontalStackLayout>
 
 
                 <!--button to nav to the history page -->
                 <Button Text="View History"
-                            Clicked="History_Clicked" 
+                        Clicked="History_Clicked" 
                         FontAttributes="Bold" 
-                        FontSize="20" 
-                        VerticalOptions="Center"
+                        FontSize="20"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                        TextColor="{AppThemeBinding Dark=#0F172A, Light=#E6D3A3}"
+                        VerticalOptions="Start"
                         Padding="15" />
+            
                 <!--clear all the favourites -->
                 <Button Text="Clear All Favourites"
                         Clicked="ClearAllFavourites_Clicked" 
                         FontAttributes="Bold" 
                         FontSize="20" 
-                        VerticalOptions="Center"
-                        BackgroundColor="Red"
-                        TextColor="White"
+                        VerticalOptions="Start"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                        TextColor="{AppThemeBinding Dark=#0F172A, Light=#E6D3A3}"
                         Padding="15"/>
+                 
 
                  <!--button to log out of the account -->
                  <Button Text="Log Out" 
-                        BackgroundColor="{DynamicResource SubTextColor}"
-                        HorizontalOptions="Fill"
-                        Clicked="Logout_Clicked"
-                        TextColor="{AppThemeBinding Light=Black, Dark=black}"
-                        Padding="15"/>
+                         BackgroundColor="{AppThemeBinding Light={DynamicResource SubTextColor}, Dark={DynamicResource SubTextColor}}"
+                         HorizontalOptions="Fill"
+                         FontSize="20" 
+                         VerticalOptions="Start"
+                         Clicked="Logout_Clicked"
+                         FontAttributes="Bold"
+                         TextColor="{AppThemeBinding Dark=#0F172A, Light=#E6D3A3}"
+                         Padding="15"/>
 
 
         </VerticalStackLayout>
@@ -99,27 +116,27 @@
 
             <!--Created Navigation buttons at the bottoms of every page in the app-->
             <Button Text="Home"
-                    TextColor="Black"
+                     TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
                     HeightRequest="30"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
             <!-- navigate to the favourites page using the nav bar-->
             <Button Text="Favourites"
-                TextColor="Black"
+                 TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                 Grid.Column="1"
                 HeightRequest="30"
                 Clicked="Favourites_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
             <!--navigate to the settings page using the nav bar -->
-            <Button Text="Settings"
-                    TextColor="Black"
+            <Button Text="Settings" 
                     Grid.Column="2"
+                    TextColor="{AppThemeBinding Dark=#0F172A, Light={DynamicResource BgColor}}"
                     HeightRequest="30"
                     IsEnabled="False"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark={DynamicResource SubTextColor}}"/>
 
 
 
