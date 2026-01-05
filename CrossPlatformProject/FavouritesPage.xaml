@@ -28,7 +28,9 @@
 
         </Grid>
 
-        <ListView x:Name="FavouritesList" Grid.Row="1" >
+        <ListView x:Name="FavouritesList"
+                  Grid.Row="1"
+                  Opacity="0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

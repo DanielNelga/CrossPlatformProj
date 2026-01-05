@@ -5,17 +5,22 @@
              Title="Movie Explorer"
               BackgroundColor="{DynamicResource BgColor}">
 
-    <Grid RowDefinitions="auto, *,auto " Padding="20">
+    <!-- Grid Layout with 3 rows-->
+    <Grid RowDefinitions="auto,*,auto " Padding="20">
 
+        <!--First Row which contains the searBox, the sort button and the clock -->
+        <Grid Grid.Row="0"
+              ColumnDefinitions="*,auto,auto"
+              VerticalOptions="Center">
 
-        <Grid Grid.Row="0" ColumnDefinitions="*,auto,auto" VerticalOptions="Center">
-
+            <!--Search Bar for searching for movies by name or genre -->
             <SearchBar x:Name="SearchBox"
                        Placeholder="Search by name or by genre"
                        TextChanged="Search"
                        BackgroundColor="{DynamicResource ButtonBg}"
                        TextColor="{DynamicResource ButtonText}"/>
 
+            <!--Button to sort the movie list both from A-Z and Z-A -->
             <Button x:Name="SortButton"
                     Grid.Column="1"
                     Text="A-Z"
@@ -23,8 +28,8 @@
                     BackgroundColor="{DynamicResource ButtonBg}"
                     TextColor="{DynamicResource ButtonText}"
                     Clicked="SortButton_Clicked" />
-            
 
+            <!--Displays live clock on top right of each page -->
             <Label x:Name="clockLabel" 
                    Grid.Column="2"
                    Padding="10"
@@ -36,68 +41,80 @@
             
 
         </Grid>
-        
-        
+
+        <!--Displays the movie list from the from the Json file -->
         <ListView x:Name="MoviesList"
                   Grid.Row="1"
                   ItemTapped="MoviesList_ItemTapped"
                   Opacity="0">
-                     <ListView.ItemTemplate>
+
+            <!--Template of how the movies apear -->
+            <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                   <HorizontalStackLayout Spacing="12" Padding="6">
 
+
+                                         <!--the emoji that represents the movie -->
                                         <Label Text="{Binding Emoji}"
-                                                               FontSize="20"
-                                                               TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
+                                               FontSize="20"
+                                               TextColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
                                          <VerticalStackLayout Spacing="2">
-                                                         <Label Text="{Binding Title}"
-                                                                           FontSize="16"
-                                                                               TextColor="{AppThemeBinding Light=Black, Dark=#E6D3A3}"/>
-                                                         <Label Text="{Binding Year}"
-                                                                       FontSize="13"
-                                                                       Opacity="0.8"
-                                                                       TextColor="{DynamicResource PageTextColor}" />
 
+
+                                                         <!--The title of the movie -->
+                                                         <Label Text="{Binding Title}"
+                                                                FontSize="16"
+                                                                TextColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
+
+                                                         <!--The year the movie was released -->
+                                                         <Label Text="{Binding Year}"
+                                                                FontSize="13"
+                                                                Opacity="0.8"
+                                                                TextColor="{DynamicResource PageTextColor}" />
+
+                                                        <!-- the genre of the movie-->
                                                         <Label Text="{Binding GenreDisplay}"
                                                                FontSize="13"
                                                                Opacity="0.8"
                                                                TextColor="{DynamicResource PageTextColor}" />       
-                                      </VerticalStackLayout>
-                              </HorizontalStackLayout>
+                                             
+                                             
+                                        </VerticalStackLayout>
+                                 </HorizontalStackLayout>
                             </ViewCell>
-                         </DataTemplate>
+                       </DataTemplate>
                      </ListView.ItemTemplate>
         </ListView>
 
-          
-       
 
+
+        <!-- Bottom grid for the navigation bar, instead of using taskbar, as for android, its more comfortable to have nav buttons on the bottom-->
         <Grid Grid.Row="2"
               BackgroundColor="DarkGrey"
               Padding="10"
               ColumnDefinitions="*,*,*">
 
-            <!--Created Navigation buttons at the bottoms of every page in the app-->
+            <!--Created Navigation buttons at the bottoms of every page in the app, Home disabled while in home page-->
             <Button Text="Home"
                     TextColor="White"
                     Grid.Column="0"
                     Clicked="BackToMainPage_Clicked"
                     IsEnabled="False"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=#E6D3A3}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
             <Button Text="Favourites"
                     TextColor="White"
                     Grid.Column="1"
                     Clicked="Favourites_Clicked"
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=#E6D3A3}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
             <Button Text="Settings"
                     TextColor="White"
                     Grid.Column="2"
                     Clicked="Settings_Clicked" 
-                    BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark=#E6D3A3}"/>
+                    BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
         </Grid>
 

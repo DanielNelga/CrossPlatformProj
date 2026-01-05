@@ -56,16 +56,16 @@ namespace CrossPlatformProject
             else
             {
                 // Light theme (clean)
-                Resources["BgColor"] = Colors.White;
-                Resources["TitleColor"] = Colors.Black;
-                Resources["SubTextColor"] = Colors.Gray;
+                Resources["BgColor"] = Champagne;
+                Resources["TitleColor"] = Navy;
+                Resources["SubTextColor"] = Navy;
 
-                Resources["EntryBg"] = Colors.White;
-                Resources["EntryText"] = Colors.Black;
-                Resources["EntryPlaceholder"] = Colors.Gray;
+                Resources["EntryBg"] = Navy;
+                Resources["EntryText"] = Navy;
+                Resources["EntryPlaceholder"] = Navy;
 
-                Resources["ButtonBg"] = Colors.Black;
-                Resources["ButtonText"] = Colors.White;
+                Resources["ButtonBg"] = Navy;
+                Resources["ButtonText"] = Navy;
             }
 
         }

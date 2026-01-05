@@ -14,7 +14,13 @@
                FontSize="16"
                TextColor="{DynamicResource SubTextColor}"/>
 
-        <VerticalStackLayout Grid.Row="0" Spacing="8" HorizontalOptions="Center">
+        <VerticalStackLayout x:Name="DetailsPage"
+                             Grid.Row="0"
+                             Spacing="8"
+                             HorizontalOptions="Center"
+                             Opacity="0">
+            
+            
             <Label Text="Movie Details Page"
                    HorizontalOptions="Center"
                    FontSize="30" TextColor="{AppThemeBinding Light=Black, Dark=Gold}"

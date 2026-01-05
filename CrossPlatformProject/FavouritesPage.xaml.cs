@@ -24,7 +24,7 @@ public partial class FavouritesPage : ContentPage
         await Shell.Current.GoToAsync("Setting");
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
 
         base.OnAppearing();
@@ -32,6 +32,9 @@ public partial class FavouritesPage : ContentPage
         var favourites = FavouritesStore.Load();
         FavouritesList.ItemsSource = favourites;
 
+        FavouritesList.Opacity = 0;
+        await Task.Delay(120);
+        await FavouritesList.FadeTo(1, 1150, Easing.CubicInOut);
         AppClock();
 
         var settings = ManageSettings.Load() ?? new SettingsList();

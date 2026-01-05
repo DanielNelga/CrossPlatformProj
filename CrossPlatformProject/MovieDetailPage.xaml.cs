@@ -1,4 +1,5 @@
 using CrossPlatformProject.Services;
+using System.Threading.Tasks;
 namespace CrossPlatformProject;
 
 
@@ -16,7 +17,7 @@ public partial class MovieDetailPage : ContentPage
 		InitializeComponent();
 	}
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
 		base.OnAppearing();
 		if (Movie != null)
@@ -24,6 +25,10 @@ public partial class MovieDetailPage : ContentPage
 			//display the genres in the movieDetailPage when user clicked on the movie in search list
 			
 			BindingContext = Movie;
+            DetailsPage.Opacity = 0;
+            await Task.Delay(120);
+            await DetailsPage.FadeTo(1, 1150, Easing.CubicInOut);
+
 
             AppClock();
 
