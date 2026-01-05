@@ -3,7 +3,10 @@ namespace CrossPlatformProject;
 
 public partial class SettingsPage : ContentPage
 {
+    //stores user settings 
     private SettingsList MovieSettings;
+
+    //timer used for clock
     private IDispatcherTimer _clockTimer;
 
 
@@ -17,10 +20,7 @@ public partial class SettingsPage : ContentPage
         
         base.OnAppearing();
 
-        
-
-        try
-        {
+            //load settings, if unable to, load default settings
             MovieSettings = ManageSettings.Load() ?? new SettingsList();
 
             if (DarkModeSwitch != null)
@@ -29,21 +29,19 @@ public partial class SettingsPage : ContentPage
             }
 
             DarkModeSwitch.IsToggled = MovieSettings.DarkMode;
-        }
-
-        catch (Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine(ex);
-        }
-
+      
+        
         ClockSwitch.IsToggled = MovieSettings.ShowClock;
 
         AppClock();
 
+            //load settings
         var settings = ManageSettings.Load() ?? new SettingsList();
+
+        //load clock from settings
         clockLabel.IsVisible = settings.ShowClock;
 
-
+        //clock/timer settings
         _clockTimer = Dispatcher.CreateTimer();
         _clockTimer.Interval = TimeSpan.FromSeconds(1);
         _clockTimer.Tick += (s, e) => AppClock();
@@ -82,9 +80,11 @@ public partial class SettingsPage : ContentPage
 
     private void DarkMode_Toggled(object sender, ToggledEventArgs e)
     {
+        //update and save the dark mode settings
         MovieSettings.DarkMode = e.Value;
         ManageSettings.Save(MovieSettings);
 
+        //apply theme instantly
         ((App)Application.Current).ApplyTheme(e.Value);
 
         Application.Current.UserAppTheme = e.Value ? AppTheme.Dark : AppTheme.Light;
@@ -92,7 +92,7 @@ public partial class SettingsPage : ContentPage
 
     private async void Logout_Clicked(object sender, EventArgs e)
     {
-
+        //confirm logout
             bool confirm = await DisplayAlert(
                 "Logout",
                 "Do you really want to logout?",
@@ -104,18 +104,25 @@ public partial class SettingsPage : ContentPage
             if (!confirm)
                 return;
         
-
+            //remove stored logout info(token)
         Preferences.Remove("LoggedInUser");
 
+        //nav to login page
         await Shell.Current.GoToAsync("LoginPage");
+
     }
+
+    //go to history page
     private async void History_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(HistoryPage));
     }
 
+    //clear all favourites
     private async void ClearAllFavourites_Clicked(object sender, EventArgs e)
     {
+
+        //displayalert confirm the clear
         bool confirm = await DisplayAlert(
                 "Clear All Favourites",
                 "Do you really want to clear your favourites?",
@@ -126,12 +133,16 @@ public partial class SettingsPage : ContentPage
         if (confirm == false)
             return;
 
+
+        //clear from storage
         CrossPlatformProject.Services.FavouritesStore.Clear();
         
     }
 
     private void Clock_Toggled(object sender, ToggledEventArgs e)
     {
+
+        //update clock visability
         MovieSettings.ShowClock = e.Value;
         ManageSettings.Save(MovieSettings);
     }

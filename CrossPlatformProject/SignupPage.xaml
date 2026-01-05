@@ -5,17 +5,19 @@
              Title="Sign Up"
              BackgroundColor="{DynamicResource BgColor}">
 
+    <!--vertical screen layout -->
     <VerticalStackLayout Padding="24"
                          Spacing="12"
                          VerticalOptions="Center">
-        
+
+        <!--create account title -->
         <Label Text="Create Account"
                FontSize="28"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                TextColor="{DynamicResource SubTextColor}"/>
 
-
+        <!--Username field -->
         <Entry x:Name="UsernameEntry"
                Placeholder="Username" 
                Margin="0.8" 
@@ -26,7 +28,7 @@
                PlaceholderColor="{DynamicResource EntryPlaceholder}"
                TextColor="{DynamicResource EntryText}"/>
 
-        
+        <!--password field -->
         <Entry x:Name="PasswordEntry" 
                Placeholder="Password" 
                IsPassword="True"
@@ -38,7 +40,7 @@
                PlaceholderColor="{DynamicResource EntryPlaceholder}"
                TextColor="{DynamicResource EntryText}"/>
 
-
+        <!--confirm the password -->
         <Entry x:Name="ConfirmEntry"
                Placeholder="Confirm Password" 
                IsPassword="True"
@@ -50,21 +52,21 @@
                PlaceholderColor="{DynamicResource EntryPlaceholder}"
                TextColor="{DynamicResource EntryText}"/>
 
-
+        <!--Error message when something doesn't meet the criteria -->
         <Label x:Name="ErrorLabel"
                TextColor="Red"
                IsVisible="False"
                HorizontalOptions="Center"/>
-        
 
+        <!--button to create account -->
         <Button Text="Create Account" 
                 Clicked="Create_Clicked"
                 HeightRequest="40 "
                 WidthRequest="150" 
                 BackgroundColor="{DynamicResource SubTextColor}"
                 TextColor="{DynamicResource EntryText}"/>
-        
-        
+
+        <!--button to return to the login page -->
         <Button Text="Back to Login"
                 Clicked="Back_Clicked" 
                 HeightRequest="40 "

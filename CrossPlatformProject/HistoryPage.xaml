@@ -5,35 +5,52 @@
              Title="History"
              BackgroundColor="{DynamicResource BgColor}">
 
+    <!--4 rows grid layout for all relevant aspects of the page -->
     <Grid RowDefinitions="Auto,*,Auto,auto" Padding="20" RowSpacing="15">
 
+        <!--title -->
         <Label Text="History"
                FontSize="36"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                TextColor="{DynamicResource SubTextColor}" />
 
-        <ListView x:Name="HistoryList" Grid.Row="1" SeparatorVisibility="None">
+
+        <!--list displaying the history -->
+        <ListView x:Name="HistoryList"
+                  Grid.Row="1"
+                  SeparatorVisibility="None">
+
+            <!--template for the list -->
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="10" ColumnSpacing="12">
+                        
+                        <!--layout for each entry -->
+                        <Grid ColumnDefinitions="Auto,*,Auto"
+                              Padding="10"
+                              ColumnSpacing="12">
 
+                            <!--emoji for movie -->
                             <Label Text="{Binding Emoji}"
                                    FontSize="22"
                                    VerticalOptions="Center"
                                    TextColor="{DynamicResource PageTextColor}" />
 
                             <VerticalStackLayout Grid.Column="1" Spacing="2">
+
+                                <!--movie title -->
                                 <Label Text="{Binding Title}"
                                        FontSize="16"
                                        TextColor="{DynamicResource PageTextColor}" />
 
+                                <!--movie genres -->
                                 <Label Text="{Binding Genres}"
                                        FontSize="13"
                                        Opacity="0.8"
                                        TextColor="{DynamicResource PageTextColor}" />
 
+                                <!--movie year -->
                                 <Label Text="{Binding Year}"
                                        FontSize="13"
                                        Opacity="0.8"
@@ -41,15 +58,20 @@
                             </VerticalStackLayout>
 
                             <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="End">
+
+                                <!--performed action -->
                                 <Label Text="{Binding Action}"
                                        FontSize="13"
                                        FontAttributes="Bold"
                                        TextColor="{DynamicResource PageTextColor}" />
 
+
+                                <!--time of the action -->
                                 <Label Text="{Binding TimeStamp}"
                                        FontSize="12"
                                        Opacity="0.8"
                                        TextColor="{DynamicResource PageTextColor}" />
+                           
                             </VerticalStackLayout>
 
                         </Grid>
@@ -58,6 +80,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
+        <!-- Clear history button-->
         <Button Text="Clear History"
                 Grid.Row="2"
                 Clicked="Clear_Clicked"
@@ -65,6 +88,7 @@
                 TextColor="White"
                 HeightRequest="40" />
 
+        <!--4th grid row for the nav buttons-->
         <Grid Grid.Row="3"
         BackgroundColor="DarkGrey"
         Padding="10"
@@ -79,7 +103,7 @@
                  BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
             <Button Text="Favourites"
-                 TextColor="White"
+                 TextColor="White" 
                  Grid.Column="1"
                  HeightRequest="30"
                  Clicked="Favourites_Clicked"

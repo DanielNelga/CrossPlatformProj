@@ -1,17 +1,17 @@
 using CrossPlatformProject.Services;
-using System.Threading.Tasks;
 namespace CrossPlatformProject;
 
-
+//allows the movie object to be passed via shell navigation
 [QueryProperty(nameof(Movie), "Movie")]
 
 public partial class MovieDetailPage : ContentPage
 {
-
+    //for timer
     private IDispatcherTimer _clockTimer;
 
 
     public Movie Movie { get; set; }
+
 	public MovieDetailPage()
 	{
 		InitializeComponent();
@@ -20,21 +20,27 @@ public partial class MovieDetailPage : ContentPage
     protected override async void OnAppearing()
     {
 		base.OnAppearing();
+
+        //proceed if object was passed
 		if (Movie != null)
 		{
-			//display the genres in the movieDetailPage when user clicked on the movie in search list
+			//display the genres in the movieDetailPage when user clicked on the movie in search list, bind to UI
 			
 			BindingContext = Movie;
+
+            //fade in animation
             DetailsPage.Opacity = 0;
             await Task.Delay(120);
             await DetailsPage.FadeTo(1, 1150, Easing.CubicInOut);
 
-
+            //clock 
             AppClock();
 
+            //load settings
             var settings = ManageSettings.Load() ?? new SettingsList();
             clockLabel.IsVisible = settings.ShowClock;
 
+            //clock and timer settings
             _clockTimer = Dispatcher.CreateTimer();
             _clockTimer.Interval = TimeSpan.FromSeconds(1);
             _clockTimer.Tick += (s, e) => AppClock();
@@ -75,12 +81,16 @@ public partial class MovieDetailPage : ContentPage
 
     private void AppClock()
     {
+        //display in this format
         clockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
     }
 
     private async void AddToFavourites_Clicked(object sender, EventArgs e)
     {
+        //add movie to favourites
         FavouritesStore.Add(Movie);
+
+        //mark as favourited
         HistoryStore.Add(Movie, "Favourited");
         await DisplayAlert("Success ", "Movie added to favourites", "OK");
     }

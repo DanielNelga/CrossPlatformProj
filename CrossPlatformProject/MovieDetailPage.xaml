@@ -5,52 +5,55 @@
              Title="Movie Details"
              BackgroundColor="{DynamicResource BgColor}">
 
+    <!--3 row grid layout -->
     <Grid RowDefinitions="auto, *,auto " Padding="20" RowSpacing="15">
 
+        <!--clock label -->
         <Label x:Name="clockLabel"
                HorizontalOptions="End"
                VerticalOptions="Start"
                FontAttributes="Bold"
                FontSize="16"
                TextColor="{DynamicResource SubTextColor}"/>
-
+        
+        <!--movie details container -->
         <VerticalStackLayout x:Name="DetailsPage"
                              Grid.Row="0"
                              Spacing="8"
                              HorizontalOptions="Center"
                              Opacity="0">
-            
-            
+
+            <!--heading page -->
             <Label Text="Movie Details Page"
                    HorizontalOptions="Center"
                    FontSize="30" TextColor="{AppThemeBinding Light=Black, Dark=Gold}"
                    Padding="12"/>
-            
-            
+
+            <!--description of the page -->
             <Label Text="Here you can find the Movie name, the genres and the related Emoji."
                    HorizontalOptions="Center"
                    FontSize="20"
                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
-            
-            
+
+            <!--extra instructions -->
             <Label Text=" You can also add the movies to favourites."
                    FontSize="20" 
                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}"
                    HorizontalOptions="Center"/>
-            
-            
+
+            <!--Movie emoji -->
             <Label Text="{Binding Emoji}"
                    FontSize="30"
                    HorizontalOptions="Center"
                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
-            
-            
+
+            <!--movie genres -->
             <Label Text=  "{Binding GenreDisplay}"
                    HorizontalOptions="Center"
                    FontAttributes="Bold"
                    TextColor="{AppThemeBinding Light=Black, Dark=Gold}" />
-            
 
+            <!--button to add a movie to the favourites page -->
             <Button Text="Add to Favourites"
                     TextColor="White"
                     BackgroundColor="Red"
@@ -60,7 +63,7 @@
             
         </VerticalStackLayout>
 
-       
+        <!--bottom nav bar -->
         <Grid Grid.Row="2"
           BackgroundColor="DarkGrey"
           Padding="10"
@@ -73,12 +76,14 @@
                     Clicked="BackToMainPage_Clicked"
                     BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
+            <!--navigate to the favourites page using the nav bar -->
             <Button Text="Favourites"
                     TextColor="White"
                     Grid.Column="1"
                     Clicked="Favourites_Clicked"
                     BackgroundColor="{AppThemeBinding Light=#5B2BD9, Dark={DynamicResource SubTextColor}}"/>
 
+            <!--navigate to the settings page using the nav bar -->
             <Button Text="Settings"
                     TextColor="White"
                     Grid.Column="2"

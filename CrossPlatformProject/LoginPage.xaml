@@ -5,67 +5,70 @@
              Title="Login"
              BackgroundColor="{DynamicResource BgColor}">
 
-
+        <!--vertical, center layout -->
         <VerticalStackLayout Padding="24"
                              Spacing="12"
                              VerticalOptions="Center" >
-            
-        <Label Text="Movie Explorer"
-               FontSize="32"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               TextColor="{DynamicResource TitleColor}"/>
 
-        <Label Text="Discover and save your favourite movies"
-               FontSize="14"
-               Opacity="0.7"
-               HorizontalOptions="Center"
-               TextColor="{DynamicResource SubTextColor}"/>
-            
-            
-        <Entry x:Name="UsernameEntry"
-               Placeholder="Username" 
-               Margin="0.8" 
-               HeightRequest="50" 
-               WidthRequest="350"
-               HorizontalOptions="Center" 
-               BackgroundColor="{DynamicResource EntryBg}"
-               PlaceholderColor="{DynamicResource EntryPlaceholder}"
-               TextColor="{DynamicResource EntryText}"/>
-            
-            
-        <Entry x:Name="PasswordEntry" 
-               Placeholder="Password" 
-               IsPassword="True"
-               Margin="0.8"
-               HeightRequest="50"
-               WidthRequest="350" 
-               HorizontalOptions="Center"
-               BackgroundColor="{DynamicResource EntryBg}"
-               PlaceholderColor="{DynamicResource EntryPlaceholder}"
-               TextColor="{DynamicResource EntryText}"/>
-            
 
-        <Label x:Name="ErrorLabel"
-               TextColor="Red"
-               IsVisible="False"
-               HorizontalOptions="Center"/>
-            
+            <!--title of the app -->
+            <Label Text="Movie Explorer"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource TitleColor}"/>
 
-        <Button Text="Log in"
-                Clicked="Login_Clicked"
-                HeightRequest="40 "
-                WidthRequest="150"
-                TextColor="{DynamicResource ButtonText}"
-                BackgroundColor="{DynamicResource ButtonBg}" />
-            
-            
-        <Button Text="Dont have an account? Sign Up"
-                Clicked="Signup_Clicked" 
-                HeightRequest="40 "
-                WidthRequest="250" 
-                BackgroundColor="Transparent"
-                TextColor="{DynamicResource TitleColor}"/>
+            <!--description -->
+            <Label Text="Discover and save your favourite movies"
+                   FontSize="14"
+                   Opacity="0.7"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource SubTextColor}"/>
+
+            <!--Username field -->
+            <Entry x:Name="UsernameEntry"
+                   Placeholder="Username" 
+                   Margin="0.8" 
+                   HeightRequest="50" 
+                   WidthRequest="350"
+                   HorizontalOptions="Center" 
+                   BackgroundColor="{DynamicResource EntryBg}"
+                   PlaceholderColor="{DynamicResource EntryPlaceholder}"
+                   TextColor="{DynamicResource EntryText}"/>
+
+            <!--password field -->
+            <Entry x:Name="PasswordEntry" 
+                   Placeholder="Password" 
+                   IsPassword="True"
+                   Margin="0.8"
+                   HeightRequest="50"
+                   WidthRequest="350" 
+                   HorizontalOptions="Center"
+                   BackgroundColor="{DynamicResource EntryBg}"
+                   PlaceholderColor="{DynamicResource EntryPlaceholder}"
+                   TextColor="{DynamicResource EntryText}"/>
+
+            <!--error message -->
+            <Label x:Name="ErrorLabel"
+                   TextColor="Red"
+                   IsVisible="False"
+                   HorizontalOptions="Center"/>
+
+            <!--login button -->
+            <Button Text="Log in"
+                    Clicked="Login_Clicked"
+                    HeightRequest="40 "
+                    WidthRequest="150"
+                    TextColor="{DynamicResource ButtonText}"
+                    BackgroundColor="{DynamicResource ButtonBg}" />
+
+            <!--Navigation button -->
+            <Button Text="Dont have an account? Sign Up"
+                    Clicked="Signup_Clicked" 
+                    HeightRequest="40 "
+                    WidthRequest="250" 
+                    BackgroundColor="Transparent"
+                    TextColor="{DynamicResource TitleColor}"/>
 
 
         </VerticalStackLayout>

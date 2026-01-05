@@ -32,11 +32,13 @@ namespace CrossPlatformProject
         //creating the file of settings
         public static void Save(SettingsList settings) 
         {
+            //convert settings object into json format and make it readable
             string json = JsonSerializer.Serialize(settings, new JsonSerializerOptions
             {
                 WriteIndented = true,
             });
 
+            //write json string to settings file
             File.WriteAllText(settingsSaved, json);
         }
     }

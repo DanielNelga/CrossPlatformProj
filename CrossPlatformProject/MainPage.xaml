@@ -104,12 +104,14 @@
                     IsEnabled="False"
                     BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
+            <!--nagivate to the favourites page usingthe bottom nav bar -->
             <Button Text="Favourites"
                     TextColor="White"
                     Grid.Column="1"
                     Clicked="Favourites_Clicked"
                     BackgroundColor="{AppThemeBinding Light=#0F172A, Dark=#E6D3A3}"/>
 
+            <!--navigate to the settings page using the nav bar -->
             <Button Text="Settings"
                     TextColor="White"
                     Grid.Column="2"
